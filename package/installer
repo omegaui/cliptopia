@@ -1,0 +1,6 @@
+#!/bin/sh
+echo ">> Starting Bundler ..."
+./bundler
+echo ">> Starting Integrator ..."
+./integrator
+echo ">> Installation Completed"

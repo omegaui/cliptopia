@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cd ..
+flutter build linux --release
+rm -rf package/bundle
+cp -r build/linux/x64/release/bundle package/

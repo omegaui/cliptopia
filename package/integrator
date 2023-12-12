@@ -1,0 +1,22 @@
+#!/bin/bash
+
+echo "  >> Starting Integration ..."
+directory="/opt/cliptopia"
+
+if [ -d "$directory" ]; then
+    echo "App binary root already exists ..."
+    echo "Reintegrating Cliptopia ..."
+else
+    mkdir $directory
+fi
+
+echo "  >> Copying Bundle ..."
+sudo cp -r bundle/* /opt/cliptopia
+echo "  >> Creating a system link (update-alternatives) ..."
+sudo update-alternatives --install /usr/bin/cliptopia cliptopia /opt/cliptopia/cliptopia 1
+echo "  >> Writing Pixmap ..."
+sudo cp desktop/cliptopia.png /usr/share/pixmaps
+echo "  >> Writing Desktop Entry"
+sudo cp desktop/cliptopia.desktop /usr/share/applications
+echo "  >> Integration Complete"
+echo "  >> See setting up the keyboard shortcut for cliptopia"
