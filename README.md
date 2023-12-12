@@ -1,5 +1,5 @@
 
-<div align="center" style="margin: 100px 0px 50px 0px">
+<div align="center" style="margin: 100px 0px 100px 0px">
     <img src="assets/icons/app-icon.png"/>
 </div>
 
