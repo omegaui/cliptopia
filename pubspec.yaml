@@ -1,0 +1,65 @@
+name: cliptopia
+description: The state-of-the-art clipboard manager.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.1.4 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  thread: ^0.2.2
+  bitsdojo_window: ^0.1.5
+  lottie: ^2.7.0
+  connectivity_plus: ^5.0.1
+  http: ^1.1.0
+  linux_plus: ^1.0.1
+  intl: ^0.18.1
+  url_launcher: ^6.2.1
+  syncfusion_flutter_datepicker: ^23.1.42
+  mime: ^1.0.4
+  dart_emoji: ^0.2.0+2
+  flutter_emoji: ^2.5.1
+  emojis: ^0.9.9
+  gap: ^3.0.1
+  flutter_animate: ^4.3.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter:
+
+  uses-material-design: true
+  assets:
+    - assets/
+    - assets/artworks/
+    - assets/icons/
+    - assets/icons/power-mode/
+    - assets/icons/top-bar/
+    - assets/icons/filters/
+    - assets/icons/backdrop-panel/
+    - assets/icons/emoji-panel/
+    - assets/icons/settings/
+    - assets/animations/
+    - assets/scripts/
+
+  fonts:
+    - family: Sen
+      fonts:
+        - asset: fonts/Sen/Sen-Regular.ttf
+          weight: 400
+        - asset: fonts/Sen/Sen-Medium.ttf
+          weight: 500
+        - asset: fonts/Sen/Sen-Bold.ttf
+          weight: 700
+    - family: EmojiOne
+      fonts:
+        - asset: fonts/EmojiOne/EmojiOneColor.otf
