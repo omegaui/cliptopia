@@ -41,6 +41,7 @@ class ClipboardController extends Controller<ClipboardState, ClipboardEvent> {
 
   void integrateDaemon() {
     clipboardRepo.integrateDaemon();
+    clipboardRepo.startDaemonIfNotRunning();
   }
 
   void reload({fastLoad = false}) {

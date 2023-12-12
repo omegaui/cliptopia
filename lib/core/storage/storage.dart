@@ -20,6 +20,10 @@ class Storage {
         "Creating Cliptopia Bug Reports Route ...");
     mkdir(combineHomePath(['.config', 'cliptopia', 'scripts']),
         "Creating Scripts Storage ...");
+    mkdir(combineHomePath(['.config', 'cliptopia', 'cache']),
+        "Creating Cliptopia Cache Storage ...");
+    mkdir(combineHomePath(['.config', 'cliptopia', 'cache', 'images']),
+        "Creating Cliptopia Image Cache Storage ...");
     _storage = JsonConfigurator(configName: 'app-settings.json');
 
     // Writing Injector ...
