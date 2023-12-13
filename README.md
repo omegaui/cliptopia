@@ -3,6 +3,8 @@
     <img src="assets/icons/app-icon.png" alt="App Icon"/>
     <br>
     <br>
+    <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Sen&weight=500&pause=1000&color=05C807&center=true&random=true&width=435&lines=%F0%9F%9A%80+Your+Clipboard%2C+You+Power+House+%F0%9F%9A%80;%E2%9A%A1+Make+the+most+out+of+clipping+%E2%9A%A1;An+Open+source+software;Clipboard+Management+like+never+before;%E2%9A%A1+the+state-of-the-art+clipboard+manager+%E2%9A%A1" alt="Typing SVG" /></a>
+    <br>
     <img src="https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white" alt="Flutter"/>
     <img src="https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java"/>
     <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Linux"/>
@@ -11,13 +13,10 @@
     <a href="https://www.buymeacoffee.com/imarham"><img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me A Coffee"/></a>
     <br>
     <a href="https://opensource.org/licenses/BSD-3-Clause"><img src="https://img.shields.io/badge/License-BSD_3--Clause-blue.svg" alt="License"/></a>
-    <br>
+    <img src="https://img.shields.io/badge/Documentaion-Slite-blue" alt="Slite"/>
 </div>
 
 # Cliptopia
-
-**I recommend reading the application description on Project's [Slite Channel](https://omegaui.slite.page/p/SCCw4NaQYcBX1A/Cliptopia).**
-**It looks beautiful and eye appealing.**
 
 Cliptopia is a state-of-the-art **clipboard management software** for the linux desktops that turns your simple clipboard into a full-fledged ⚡**power house**⚡
 
@@ -49,6 +48,25 @@ As the names goes **Cliptopia**, it is all about your clipboard, but in the sens
 
 See [The Daemon](https://slite.com/api/public/notes/l9bdqAzEIRZ7dG/redirect) , to explore more features.
 
+## ![daemon](https://img.icons8.com/cotton/48/rocket.png) The Daemon
+At the heart of Cliptopia lies the [`cliptopia-daemon`](https://github.com/omegaui/cliptopia_daemon) which is responsible for watching your clipboard.
+
+When you install Cliptopia,
+you can run it directly from the app launcher or by just executing `cliptopia` in your terminal or by pressing Super + V after you have created the clipboard shortcut.
+In any case, cliptopia will ask you to install the daemon ...
+
+Either you can download/build it from source by yourself from its [repo](github.com/omegaui/cliptopia_daemon) or you let cliptopia handle this for you. 
+Yes, Cliptopia can itself download the daemon for you if you desire so.
+
+Moving further, in any case, the daemon should be placed at `/usr/bin` so that cliptopia can manage it.
+
+**Cliptopia is compositor independent** which means it works the same no matter you are on X11 or Wayland.
+On X11, `xclip` is used to watch the clipboard and on Wayland `wl-clipboard` is used.
+
+On some distros, like **Ubuntu with GNOME on Wayland**, xclip still works because of an XWayland session, so, if you want you can force cliptopia to use `xclip` even on wayland also from its settings panel.
+
+![img.png](media_Cliptopia/settings.png)
+
 #### Please note that Cliptopia is in beta until a stable version releases, which is expected to be released by the end of this month.
 
 ## Installation
@@ -63,6 +81,7 @@ Before that you need the following commands available in your linux distribution
 - pgrep
 - pkexec
 - whereis
+- wl-clipboard (for wayland only)
 - and optionally **flutter** 3.16 or above if you are installing from source.
 
 Yes, Cliptopia is written entirely using Flutter, thus, it compiles to native and delivers lightening fast performance as your other apps.
