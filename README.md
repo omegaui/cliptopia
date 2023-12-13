@@ -13,7 +13,7 @@
     <a href="https://www.buymeacoffee.com/imarham"><img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me A Coffee"/></a>
     <br>
     <a href="https://opensource.org/licenses/BSD-3-Clause"><img src="https://img.shields.io/badge/License-BSD_3--Clause-blue.svg" alt="License"/></a>
-    <img src="https://img.shields.io/badge/Documentaion-Slite-blue" alt="Slite"/>
+    <a href="https://omegaui.slite.page/p/SCCw4NaQYcBX1A/Cliptopia"><img src="https://img.shields.io/badge/Documentaion-Slite-blue" alt="Slite"/></a>
 </div>
 
 # Cliptopia
