@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Check to see if the needed programs are installed:
-for program in grep xclip pgrep pkexec whereis; do
+for program in grep xclip pgrep pkexec whereis wl-clipboard; do
   installed=$(command -v $program)
   [[ -z "$installed" ]] && echo "$program is not installed, please install it then run this again." && exit 1 || echo "$program is installed"
 done
