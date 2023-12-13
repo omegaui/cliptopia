@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=Cliptopia Daemon
-Exec=cliptopia-daemon
-Icon=cliptopia
-Type=Application
-Categories=Utility
-Terminal=false
-StartupWMClass=cliptopia
