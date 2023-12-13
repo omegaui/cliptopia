@@ -30,6 +30,26 @@ else
       exit 1
 fi
 
-#  Now lets continue
+# bundling
+
+flutter build linux --release
+rm -rf package/bundle
+cp -r build/linux/x64/release/bundle package/
+
+# preparing /app root
+
+directory="/opt/cliptopia"
+
+if [ -d "$directory" ]; then
+    echo "App binary root already exists ..."
+    echo "Reintegrating Cliptopia ..."
+else
+    sudo mkdir $directory
+fi
+
+echo "  >> Copying Bundle to /opt/cliptopia ..."
+sudo cp -r package/bundle/* /opt/cliptopia
+
+#  Now lets install
 cd package
-./installer
+./integrator
