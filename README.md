@@ -48,7 +48,7 @@ See [The Daemon](https://slite.com/api/public/notes/l9bdqAzEIRZ7dG/redirect) , t
 
 ## Installation
 
-Right now, you can install cliptopia either from source or by using the pre-compiled bundle included in this repo.
+Right now, you can only install cliptopia from source.
 
 Before that you need the following commands available in your linux distribution ...
 
@@ -80,11 +80,6 @@ cd cliptopia
 
 ```bash
 ./install-from-source.sh
-```
-- or run the install.sh script to install from precompiled bundle
-
-```bash
-./install.sh
 ```
 
 Running the above commands in sequence will install cliptopia on your machine.
