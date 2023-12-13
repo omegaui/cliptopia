@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:cliptopia/app/settings/domain/exclusion_entity.dart';
 import 'package:cliptopia/app/settings/presentation/settings_controller.dart';
 import 'package:cliptopia/app/settings/presentation/widgets/option.dart';
@@ -181,206 +183,221 @@ class _SettingsInitializedStateViewState
       width: 700,
       child: Padding(
         padding: const EdgeInsets.only(top: 25.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 36,
-                right: 36,
-                bottom: 25,
-              ),
-              child: SizedBox(
-                height: 50,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      AppIcons.theme,
-                      width: 48,
-                      height: 48,
-                      fit: BoxFit.fitWidth,
-                    ),
-                    const SizedBox(width: 11),
-                    Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Choose App Theme",
-                          style: AppTheme.fontSize(16).makeBold(),
-                        ),
-                        const SizedBox(height: 5),
-                        Text(
-                          "Chose one among \"Light\", \"Dark\" and \"System\" (under development)",
-                          style: AppTheme.fontSize(14),
-                        ),
-                      ],
-                    ),
-                    Expanded(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: 36,
+                  right: 36,
+                  bottom: 25,
+                ),
+                child: SizedBox(
+                  height: 50,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        AppIcons.theme,
+                        width: 48,
+                        height: 48,
+                        fit: BoxFit.fitWidth,
+                      ),
+                      const SizedBox(width: 11),
+                      Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          SizedBox(
-                            width: 80,
-                            child: DropdownButton<String>(
-                              items: ["Light", "Dark", "System"]
-                                  .map(
-                                    (e) => DropdownMenuItem(
-                                      enabled: false,
-                                      value: e,
-                                      child: Text(
-                                        e,
-                                        style: AppTheme.fontSize(14).makeBold(),
-                                      ),
-                                    ),
-                                  )
-                                  .toList(),
-                              value: Storage.get('theme') ?? 'Light',
-                              onChanged: (String? value) {
-                                setState(() {
-                                  Storage.set('theme', value);
-                                });
-                              },
-                            ),
+                          Text(
+                            "Choose App Theme",
+                            style: AppTheme.fontSize(16).makeBold(),
+                          ),
+                          const SizedBox(height: 5),
+                          Text(
+                            "Chose one among \"Light\", \"Dark\" and \"System\" (under development)",
+                            style: AppTheme.fontSize(14),
                           ),
                         ],
                       ),
-                    ),
-                  ],
+                      Expanded(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            SizedBox(
+                              width: 80,
+                              child: DropdownButton<String>(
+                                items: ["Light", "Dark", "System"]
+                                    .map(
+                                      (e) => DropdownMenuItem(
+                                        enabled: false,
+                                        value: e,
+                                        child: Text(
+                                          e,
+                                          style:
+                                              AppTheme.fontSize(14).makeBold(),
+                                        ),
+                                      ),
+                                    )
+                                    .toList(),
+                                value: Storage.get('theme') ?? 'Light',
+                                onChanged: (String? value) {
+                                  setState(() {
+                                    Storage.set('theme', value);
+                                  });
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-            Option(
-              title: "Autostart Cliptopia Daemon",
-              description:
-                  "Watches the clipboard in the background, for working seamlessly",
-              active: widget.controller.settingsRepo.isDaemonAutostart(),
-              icon: AppIcons.launch,
-              onChanged: (enabled) async {
-                await widget.controller.settingsRepo
-                    .setDaemonAutostart(!enabled);
-                setState(() {});
-              },
-            ),
-            Option(
-              title: "Keep Clipboard History Across Restarts",
-              description:
-                  "Enable this to keep your clipboard contents even after restarts",
-              active: widget.controller.settingsRepo.isKeepingHistory(),
-              icon: AppIcons.history,
-              onChanged: (enabled) {
-                widget.controller.settingsRepo.setKeepHistory(enabled);
-                if (widget.controller.settingsRepo.isMaintainingState()) {
-                  if (!enabled) {
-                    Messenger.show(
-                      "State Management Turned off",
-                      type: MessageType.severe,
-                    );
-                  }
-                }
-                setState(() {});
-              },
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 36,
-                right: 36,
-                bottom: 25,
+              Option(
+                title: "Autostart Cliptopia Daemon",
+                description:
+                    "Watches the clipboard in the background, for working seamlessly",
+                active: widget.controller.settingsRepo.isDaemonAutostart(),
+                icon: AppIcons.launch,
+                onChanged: (enabled) async {
+                  await widget.controller.settingsRepo
+                      .setDaemonAutostart(!enabled);
+                  setState(() {});
+                },
               ),
-              child: SizedBox(
-                height: 50,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      AppIcons.storage,
-                      width: 48,
-                      height: 48,
-                      fit: BoxFit.fitWidth,
-                    ),
-                    const SizedBox(width: 11),
-                    Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Limit Clipboard Cache Size",
-                          style: AppTheme.fontSize(16).makeBold(),
-                        ),
-                        const SizedBox(height: 5),
-                        Text(
-                          "Control the amount of disk space cache should occupy",
-                          style: AppTheme.fontSize(14),
-                        ),
-                      ],
-                    ),
-                    Expanded(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
+              Option(
+                title: "Force use xclip instead of wl-clipboard",
+                description:
+                    "Uses xclip in your wayland session (e.g GNOME on UBUNTU)",
+                active: widget.controller.settingsRepo.isForcingXClip(),
+                icon: AppIcons.clipboard,
+                enabled: Platform.environment['WAYLAND_DISPLAY'] != null,
+                onChanged: (enabled) {
+                  widget.controller.settingsRepo.setForceXClip(enabled);
+                  setState(() {});
+                },
+              ),
+              Option(
+                title: "Keep Clipboard History Across Restarts",
+                description:
+                    "Enable this to keep your clipboard contents even after restarts",
+                active: widget.controller.settingsRepo.isKeepingHistory(),
+                icon: AppIcons.history,
+                onChanged: (enabled) {
+                  widget.controller.settingsRepo.setKeepHistory(enabled);
+                  if (widget.controller.settingsRepo.isMaintainingState()) {
+                    if (!enabled) {
+                      Messenger.show(
+                        "State Management Turned off",
+                        type: MessageType.severe,
+                      );
+                    }
+                  }
+                  setState(() {});
+                },
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: 36,
+                  right: 36,
+                  bottom: 25,
+                ),
+                child: SizedBox(
+                  height: 50,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        AppIcons.storage,
+                        width: 48,
+                        height: 48,
+                        fit: BoxFit.fitWidth,
+                      ),
+                      const SizedBox(width: 11),
+                      Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          SizedBox(
-                            width: 120,
-                            child: TextField(
-                              controller: cacheSizeController,
-                              style: AppTheme.fontSize(14),
-                              inputFormatters: [
-                                FilteringTextInputFormatter.digitsOnly,
-                              ],
-                              onChanged: (value) {
-                                if (num.tryParse(value) != null) {
-                                  cacheSize = value;
-                                  widget.controller.settingsRepo
-                                      .setCacheSize(value);
-                                }
-                              },
-                              decoration: InputDecoration(
-                                suffix: DropdownButton<String>(
-                                  items: ["KB", "MB", "GB"]
-                                      .map(
-                                        (e) => DropdownMenuItem(
-                                          value: e,
-                                          child: Text(
-                                            e,
-                                            style: AppTheme.fontSize(14)
-                                                .makeBold(),
+                          Text(
+                            "Limit Clipboard Cache Size",
+                            style: AppTheme.fontSize(16).makeBold(),
+                          ),
+                          const SizedBox(height: 5),
+                          Text(
+                            "Control the amount of disk space cache should occupy",
+                            style: AppTheme.fontSize(14),
+                          ),
+                        ],
+                      ),
+                      Expanded(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            SizedBox(
+                              width: 120,
+                              child: TextField(
+                                controller: cacheSizeController,
+                                style: AppTheme.fontSize(14),
+                                inputFormatters: [
+                                  FilteringTextInputFormatter.digitsOnly,
+                                ],
+                                onChanged: (value) {
+                                  if (num.tryParse(value) != null) {
+                                    cacheSize = value;
+                                    widget.controller.settingsRepo
+                                        .setCacheSize(value);
+                                  }
+                                },
+                                decoration: InputDecoration(
+                                  suffix: DropdownButton<String>(
+                                    items: ["KB", "MB", "GB"]
+                                        .map(
+                                          (e) => DropdownMenuItem(
+                                            value: e,
+                                            child: Text(
+                                              e,
+                                              style: AppTheme.fontSize(14)
+                                                  .makeBold(),
+                                            ),
                                           ),
-                                        ),
-                                      )
-                                      .toList(),
-                                  value: cacheUnit,
-                                  onChanged: (String? value) {
-                                    setState(() {
-                                      cacheUnit = value!;
-                                      widget.controller.settingsRepo
-                                          .setCacheUnit(cacheUnit);
-                                    });
-                                  },
+                                        )
+                                        .toList(),
+                                    value: cacheUnit,
+                                    onChanged: (String? value) {
+                                      setState(() {
+                                        cacheUnit = value!;
+                                        widget.controller.settingsRepo
+                                            .setCacheUnit(cacheUnit);
+                                      });
+                                    },
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
-            ),
-            Option(
-              title: "Maintain Clipboard State",
-              description:
-                  "Copy the most recent item to the clipboard on system restart",
-              active: widget.controller.settingsRepo.isMaintainingState(),
-              enabled: widget.controller.settingsRepo.isKeepingHistory(),
-              icon: AppIcons.card,
-              disableCause: "Maintaining State requires History Keeping",
-              onChanged: (enabled) {
-                widget.controller.settingsRepo.setMaintainState(enabled);
-                setState(() {});
-              },
-            ),
-          ],
+              Option(
+                title: "Maintain Clipboard State",
+                description:
+                    "Copy the most recent item to the clipboard on system restart",
+                active: widget.controller.settingsRepo.isMaintainingState(),
+                enabled: widget.controller.settingsRepo.isKeepingHistory(),
+                icon: AppIcons.card,
+                disableCause: "Maintaining State requires History Keeping",
+                onChanged: (enabled) {
+                  widget.controller.settingsRepo.setMaintainState(enabled);
+                  setState(() {});
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -722,6 +739,10 @@ class _SettingsInitializedStateViewState
               runSpacing: 10,
               children: [
                 buildTile("xclip", "-h"),
+                if (Platform.environment['WAYLAND_DISPLAY'] != null) ...[
+                  buildTile("wl-paste", "-h"),
+                  buildTile("wl-copy", "-h"),
+                ],
                 buildTile("pgrep", "--help"),
                 buildTile("grep", "--help"),
                 buildTile("pkexec", "--help"),

@@ -44,6 +44,14 @@ class SettingsRepository {
     return daemonConfig.get('keep-history') ?? true;
   }
 
+  bool isForcingXClip() {
+    return daemonConfig.get('force-xclip') ?? true;
+  }
+
+  void setForceXClip(value) {
+    daemonConfig.put('force-xclip', value);
+  }
+
   int getCacheSize() {
     return daemonConfig.get('cache-size') ?? 0;
   }
