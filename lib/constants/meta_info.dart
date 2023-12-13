@@ -3,7 +3,7 @@ import 'package:cliptopia/core/utils.dart';
 class MetaInfo {
   MetaInfo._();
 
-  static String get version => "v1.0.0+1";
+  static String get version => "v1.0.0+2";
   static const daemonDownloadUrl =
       "https://github.com/omegaui/cliptopia_daemon/raw/master/cliptopia-daemon";
   static final daemonDownloadedBinaryPath = combineHomePath([

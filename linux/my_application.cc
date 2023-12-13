@@ -69,7 +69,9 @@ static void my_application_activate(GApplication* application) {
             hasFlag("--silent", length, global_argv) &&
             hasFlag("--power", length, global_argv)) {
     GdkScreen* screen = gtk_window_get_screen(window);
-    gtk_window_set_default_size(window, gdk_screen_get_width(screen), gdk_screen_get_height(screen));
+    GdkRectangle monitor_rect;
+    gdk_screen_get_monitor_geometry(screen, 0, &monitor_rect);
+    gtk_window_set_default_size(window, monitor_rect.width, monitor_rect.height);
   } else {
     gtk_window_set_default_size(window, 750, 650);
   }
