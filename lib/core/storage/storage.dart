@@ -35,6 +35,10 @@ class Storage {
       injectorFile.writeAsBytesSync(contents.buffer.asUint8List(), flush: true);
     }
 
+    // Writing Copy Script ...
+    copyScript = File(combineHomePath(
+        ['.config', 'cliptopia', 'scripts', 'cliptopia-copy.sh']));
+
     // Writing Launch Script ...
     commandExecutorScript = File(combineHomePath(
         ['.config', 'cliptopia', 'scripts', 'cliptopia-command-executor.sh']));
