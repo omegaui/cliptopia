@@ -28,6 +28,7 @@ dependencies:
   emojis: ^0.9.9
   gap: ^3.0.1
   flutter_animate: ^4.3.0
+  flutter_to_debian: ^1.0.4
 
 dev_dependencies:
   flutter_test:

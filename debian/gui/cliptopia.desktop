@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Cliptopia
+Exec=cliptopia
+Icon=cliptopia
+Version=1.0
+Type=Application
+Categories=Utility
+Terminal=false
+StartupWMClass=cliptopia
+Description=The state-of-the-art Clipboard Manager

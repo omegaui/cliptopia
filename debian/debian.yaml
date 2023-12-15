@@ -1,0 +1,14 @@
+flutter_app:
+  command: cliptopia
+  arch: x64
+  parent: /usr/local/lib
+
+control:
+  Package: Cliptopia
+  Version: 1.0.0+2
+  Architecture: amd64
+  Essential: no
+  Priority: optional
+  Depends: xclip, grep, wl-clipboard, pkexec
+  Maintainer: Omega UI <omegaui22@gmail.com>
+  Description: The state-of-the-art clipboard manager.
