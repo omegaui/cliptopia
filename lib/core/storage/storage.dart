@@ -35,22 +35,7 @@ class Storage {
       injectorFile.writeAsBytesSync(contents.buffer.asUint8List(), flush: true);
     }
 
-    // Writing Copy Script ...
-    copyScript = File(combineHomePath(
-        ['.config', 'cliptopia', 'scripts', 'cliptopia-copy.sh']));
-    if (!copyScript.existsSync()) {
-      prettyLog(value: "Writing a script to copy files to clipboard ...");
-      final contents =
-          await rootBundle.loadString('assets/scripts/cliptopia-copy.sh');
-      copyScript.writeAsStringSync(contents, flush: true);
-      // Making it executable
-      Process.runSync(
-        'chmod',
-        ['+x', copyScript.path],
-      );
-    }
-
-    // Writing Copy Script ...
+    // Writing Launch Script ...
     commandExecutorScript = File(combineHomePath(
         ['.config', 'cliptopia', 'scripts', 'cliptopia-command-executor.sh']));
     if (!commandExecutorScript.existsSync()) {
