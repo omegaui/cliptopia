@@ -116,6 +116,16 @@ If you have already installed cliptopia, running the above commands will result 
 Then, you need to add a custom keyboard shortcut to invoke Cliptopia in Power Mode ...
 ![img.png](media_Cliptopia/img.png)
 
+If you have installed Cliptopia from releases using the **.deb** package, then, change
+```bash
+cliptopia --silent --power
+```
+
+to
+```bash
+/usr/local/lib/Cliptopia/cliptopia --silent --power 
+```
+
 ## Modes
 Cliptopia can be made to launch in three mode:
 - Normal Mode (`cliptopia`)
