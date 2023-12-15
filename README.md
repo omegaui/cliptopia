@@ -73,7 +73,7 @@ On some distros, like **Ubuntu with GNOME on Wayland**, xclip still works becaus
 
 ## Installation
 
-Right now, you can only install cliptopia from source.
+Right now, you can install cliptopia from source or from .deb package in releases section.
 
 Before that you need the following commands available in your linux distribution ...
 
