@@ -3,7 +3,7 @@
     <img src="assets/icons/app-icon.png" alt="App Icon"/>
     <br>
     <br>
-    <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Sen&weight=500&pause=1000&color=05C807&center=true&random=true&width=435&lines=%F0%9F%9A%80+Your+Clipboard%2C+You+Power+House+%F0%9F%9A%80;%E2%9A%A1+Make+the+most+out+of+clipping+%E2%9A%A1;An+Open+source+software;Clipboard+Management+like+never+before;%E2%9A%A1+the+state-of-the-art+clipboard+manager+%E2%9A%A1" alt="Typing SVG" /></a>
+    <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Sen&weight=500&pause=1000&color=05C807&center=true&random=true&width=435&lines=%F0%9F%9A%80+Your+Clipboard%2C+You+Power+House+%F0%9F%9A%80;%E2%9A%A1+Make+the+most+out+of+clipping+%E2%9A%A1;%E2%9A%A1+Unleash+the+power+of+your+clipboard+%E2%9A%A1;An+Open+source+software;Clipboard+Management+like+never+before;%E2%9A%A1+the+state-of-the-art+clipboard+manager+%E2%9A%A1" alt="Typing SVG" /></a>
     <br>
     <img src="https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white" alt="Flutter"/>
     <img src="https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java"/>
