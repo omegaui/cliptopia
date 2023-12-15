@@ -116,6 +116,42 @@ If you have already installed cliptopia, running the above commands will result 
 Then, you need to add a custom keyboard shortcut to invoke Cliptopia in Power Mode ...
 ![img.png](media_Cliptopia/img.png)
 
+## Modes
+Cliptopia can be made to launch in three mode:
+- Normal Mode (`cliptopia`)
+- Silent Mode (`cliptopia --silent`)
+- Power Mode (`cliptopia --silent --power`)
+
+Injection: it refers to clicking on an clipboard element in the UI of Cliptopia to insert it in the last focussed field.
+
+### Normal Mode
+- Updates in real time as you use your clipboard
+- Supports content injection
+- Does not quits after injection is performed
+
+### Silent Mode
+- Updates in real time as you use your clipboard
+- Supports content injection
+- Quits after injection is performed
+
+### Power Mode
+- Does **NOT** updates in real time as you use your clipboard
+- Supports content injection
+- Quits after injection is performed
+
+There is a very valid reason Power Mode is designed to not update in real time,
+as we know, Super + V combination can be used to bring the Power Mode into effect,
+it is designed to be used occasionally when you require to find an item that you copied earlier and in cases, 
+where you need to do this quickly. 
+
+So, for the Power Mode to get ready in an instant, a single read of the cache is performed to deliver the fastest possible 
+performance on your system, thus, preventing the real time updates as there is no watching of the cache being maintained by the daemon.
+
+That's why power mode does not update in realtime.
+
+But, We do not stop here, actually the Power Mode can be made to update in real time, by using the `--update` flag.
+Work on this is currently under development. 
+
 ## Updates
 
 Cliptopia will have a built-in update system, so, when a new release arrives, your installation will automatically notify you about it.
