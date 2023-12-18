@@ -1,4 +1,6 @@
 
+![image.png](media_Cliptopia/unf8_K_sEOPRfi-image.png)
+
 <div align="center" style="margin: 100px 0px 100px 0px">
     <img src="assets/icons/app-icon.png" alt="App Icon"/>
     <br>
@@ -49,6 +51,10 @@ As the names goes **Cliptopia**, it is all about your clipboard, but in the sens
 -   And a very attractive custom User Interface ❣️
 
 See [The Daemon](https://slite.com/api/public/notes/l9bdqAzEIRZ7dG/redirect) , to explore more features.
+
+## GNOME (Ubuntu) 
+This is for users who are running GNOME on Ubuntu in a wayland session (default session).
+Rather than using `wl-clipboard`, please enable `force-xclip` mode from cliptopia's settings to prevent encounter [this issue](https://github.com/omegaui/cliptopia/issues/16).
 
 ## ![daemon](https://img.icons8.com/cotton/48/rocket.png) The Daemon
 At the heart of Cliptopia lies the [`cliptopia-daemon`](https://github.com/omegaui/cliptopia_daemon) which is responsible for watching your clipboard.
