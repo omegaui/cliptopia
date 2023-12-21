@@ -1,0 +1,45 @@
+name: Build
+on: [push]
+
+jobs:
+  Debian-AppImage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v1
+        with:
+          flutter-version: '3.16.3'
+      - name: Build and Test
+        run: |
+          flutter pub get
+          flutter analyze
+          flutter test
+      - name: Build with flutter_to_debian
+        run: |
+          flutter build linux
+          dart pub global activate flutter_to_debian
+          flutter pub run flutter_to_debian:main
+      - name: Build AppImage unsing appimage-builder
+        uses: docker://appimagecrafters/appimage-builder:0.8.5
+        with:
+          entrypoint: appimage-builder
+          args: --recipe ./AppImageBuilder.yml --skip-test
+      - name: Save build Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: AppImage
+          path: |
+            ./*.AppImage
+            ./debian/packages/*.deb
+      - name: Release AppImage
+        if: false # TODO
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          title: Continuous build
+          automatic_release_tag: 'continuous'
+          prerelease: true
+          draft: false
+          files: './*.AppImage*'
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+

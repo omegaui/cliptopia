@@ -43,4 +43,7 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
-/debian/packages/Cliptopia_1.0.0+2_amd64.deb
+
+# Build packages
+/debian/packages/*.deb
+*.AppImage
