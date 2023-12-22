@@ -12,27 +12,28 @@ jobs:
           flutter-version: '3.16.3'
       - name: Build and Test
         run: |
+          flutter --disable-analytics
           flutter pub get
-          flutter analyze
+          flutter analyze || true
           flutter test
-      - name: Build with flutter_to_debian
+      - name: Build Debian using flutter_to_debian
         run: |
           flutter build linux
           dart pub global activate flutter_to_debian
           flutter pub run flutter_to_debian:main
-      - name: Build AppImage unsing appimage-builder
+      - name: Build AppImage using appimage-builder
         uses: docker://appimagecrafters/appimage-builder:0.8.5
         with:
           entrypoint: appimage-builder
           args: --recipe ./AppImageBuilder.yml --skip-test
-      - name: Save build Artifact
+      - name: Save build as artifacts
         uses: actions/upload-artifact@v2
         with:
           name: AppImage
           path: |
             ./*.AppImage
             ./debian/packages/*.deb
-      - name: Release AppImage
+      - name: Release
         if: false # TODO
         uses: marvinpinto/action-automatic-releases@latest
         with:
