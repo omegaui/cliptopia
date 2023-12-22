@@ -3,7 +3,7 @@ on: [push]
 
 jobs:
   Debian-AppImage:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
