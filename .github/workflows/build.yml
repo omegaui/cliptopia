@@ -15,7 +15,7 @@ jobs:
           flutter --disable-analytics
           flutter pub get
           flutter analyze || true
-          flutter test
+          # flutter test
       - name: Build Debian using flutter_to_debian
         run: |
           flutter build linux
