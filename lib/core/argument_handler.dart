@@ -41,10 +41,7 @@ class ArgumentHandler {
         return false;
       }
     }
-    return isDebugMode() ||
-        isSilentMode() ||
-        isPowerMode() ||
-        _arguments.isEmpty;
+    return true;
   }
 
   static Iterable<String> getUnknownOptions() sync* {
