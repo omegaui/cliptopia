@@ -10,16 +10,21 @@ jobs:
       - uses: subosito/flutter-action@v1
         with:
           flutter-version: '3.16.3'
-      - name: Build and Test
+      - name: Prepare
         run: |
           flutter --disable-analytics
+          flutter doctor -v
+          sudo apt update
+          sudo apt install ninja-build -y
+          dart pub global activate flutter_to_debian
+      - name: Build and Test
+        run: |
           flutter pub get
           flutter analyze || true
           # flutter test
       - name: Build Debian using flutter_to_debian
         run: |
           flutter build linux
-          dart pub global activate flutter_to_debian
           flutter pub run flutter_to_debian:main
       - name: Build AppImage using appimage-builder
         uses: docker://appimagecrafters/appimage-builder:0.8.5
