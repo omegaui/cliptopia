@@ -66,8 +66,8 @@ static void my_application_activate(GApplication* application) {
   gtk_window_set_resizable(window, FALSE);
 
   if (global_argv != NULL &&
-            hasFlag("--silent", length, global_argv) &&
-            hasFlag("--power", length, global_argv)) {
+        hasFlag("--silent", length, global_argv) &&
+        hasFlag("--power", length, global_argv)) {
     GdkScreen* screen = gtk_window_get_screen(window);
     GdkRectangle monitor_rect;
     gdk_screen_get_monitor_geometry(screen, 0, &monitor_rect);

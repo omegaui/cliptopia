@@ -3,10 +3,11 @@ import 'package:cliptopia/app/settings/presentation/widgets/option.dart';
 import 'package:cliptopia/config/assets/app_artworks.dart';
 import 'package:cliptopia/config/assets/app_icons.dart';
 import 'package:cliptopia/config/themes/app_theme.dart';
+import 'package:cliptopia/constants/meta_info.dart';
 import 'package:cliptopia/core/storage/storage.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 void showPowerSettings(BuildContext context) {
   showDialog(
@@ -73,17 +74,64 @@ class _PowerModeSettingsState extends State<PowerModeSettings> {
                           ],
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 32.0, top: 20),
-                        child: IconButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          icon: Icon(
-                            Icons.close,
-                            color: AppTheme.foreground,
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 20.0),
+                            child: Tooltip(
+                              message: "Current App Version",
+                              child: Text(
+                                MetaInfo.version,
+                                style: AppTheme.fontSize(14).makeMedium(),
+                              ),
+                            ),
                           ),
-                        ),
+                          const Gap(10),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 20.0),
+                            child: IconButton(
+                              tooltip: "See Releases on GitHub",
+                              onPressed: () {
+                                launchUrlString(
+                                    "https://github.com/omegaui/cliptopia/releases");
+                              },
+                              icon: Image.asset(
+                                AppIcons.bulb,
+                                width: 32,
+                              ),
+                            ),
+                          ),
+                          const Gap(10),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 20.0),
+                            child: IconButton(
+                              tooltip: "View Project on GitHub",
+                              onPressed: () {
+                                launchUrlString(
+                                    "https://github.com/omegaui/cliptopia");
+                              },
+                              icon: Image.asset(
+                                AppIcons.github,
+                                width: 32,
+                              ),
+                            ),
+                          ),
+                          const Gap(10),
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(right: 32.0, top: 20),
+                            child: IconButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              icon: Icon(
+                                Icons.close,
+                                color: AppTheme.foreground,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
