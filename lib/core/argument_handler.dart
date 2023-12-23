@@ -8,6 +8,7 @@ class ArgumentHandler {
     '--silent',
     '--power',
     '--version',
+    '--daemon-compatible-version',
     '--help',
   ];
 
@@ -21,6 +22,10 @@ class ArgumentHandler {
 
   static bool shouldShowVersion() {
     return _arguments.contains('--version');
+  }
+
+  static bool shouldShowDaemonCompatibleVersion() {
+    return _arguments.contains('--daemon-compatible-version');
   }
 
   static bool isDebugMode() {

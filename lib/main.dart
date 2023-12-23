@@ -42,6 +42,12 @@ void main(List<String> arguments) {
       return;
     }
 
+    if (ArgumentHandler.shouldShowDaemonCompatibleVersion()) {
+      stdout.writeln(
+          "Compatible Cliptopia Daemon version ${MetaInfo.daemonCompatibleVersion}");
+      return;
+    }
+
     WidgetsFlutterBinding.ensureInitialized();
 
     // Initializing App Storage

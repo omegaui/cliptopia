@@ -3,7 +3,7 @@ description: The state-of-the-art clipboard manager.
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-version: 1.0.0+2
+version: 1.0.0+3
 
 environment:
   sdk: '>=3.1.4 <4.0.0'
