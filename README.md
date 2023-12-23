@@ -92,7 +92,7 @@ Before that you need the following commands available in your linux distribution
 - wl-clipboard (for wayland only)
 - and optionally **flutter** 3.16 or above if you are installing from source.
 
-Yes, Cliptopia is written entirely using Flutter, thus, it compiles to native and delivers lightening fast performance as your other apps.
+Yes, Cliptopia is written entirely using Flutter, thus, it compiles to native and delivers lightning fast performance as your other apps.
 
 Installing Cliptopia is a very easy and fast process ...
 
