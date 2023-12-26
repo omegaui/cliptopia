@@ -1,8 +1,21 @@
 import 'dart:io';
 
+import 'package:cliptopia/constants/meta_info.dart';
 import 'package:cliptopia/core/argument_handler.dart';
 
 enum DebugType { error, info, warning, url, response, statusCode }
+
+final _sessionLog = File(MetaInfo.sessionLogFilePath);
+
+void initSessionLog() {
+  if (_sessionLog.existsSync()) {
+    _sessionLog.deleteSync();
+    _sessionLog.writeAsStringSync(
+        "-----------------Logs of Cliptopia running in release mode-----------------\n",
+        flush: true);
+    _sessionLog.writeAsStringSync(">> Date: ${DateTime.now()}\n", flush: true);
+  }
+}
 
 prettyLog({
   String? tag,
@@ -10,6 +23,11 @@ prettyLog({
   DebugType type = DebugType.info,
 }) {
   if (!ArgumentHandler.isDebugMode()) {
+    _sessionLog.writeAsStringSync(
+      "[${tag ?? "LOG"}] $value\n",
+      flush: true,
+      mode: FileMode.append,
+    );
     return;
   }
   switch (type) {

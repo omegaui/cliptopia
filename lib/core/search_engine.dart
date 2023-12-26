@@ -7,10 +7,6 @@ class SearchEngine {
 
   static final SearchWatcher primary = SearchWatcher(onEvent: (text) {
     // this part will be reimplemented in search supported states
-    prettyLog(
-      value: "Search Engine switched to default",
-      type: DebugType.response,
-    );
   });
 
   SearchEngine() {

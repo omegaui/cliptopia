@@ -11,6 +11,7 @@ import 'package:cliptopia/core/app_session.dart';
 import 'package:cliptopia/core/clipboard_engine.dart';
 import 'package:cliptopia/core/database/database.dart';
 import 'package:cliptopia/core/database/exclusion_database.dart';
+import 'package:cliptopia/core/logger.dart';
 import 'package:cliptopia/core/search_engine.dart';
 import 'package:cliptopia/core/services/route_service.dart';
 
@@ -18,6 +19,7 @@ class _InjectionContainer {
   Set<dynamic> dependencies = {};
 
   void put<T>(T t) {
+    prettyLog(value: "Added $T ...", tag: "DependencyInjector");
     dependencies.add(t);
   }
 

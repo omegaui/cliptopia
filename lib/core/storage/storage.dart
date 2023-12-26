@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:cliptopia/core/argument_handler.dart';
 import 'package:cliptopia/core/logger.dart';
 import 'package:cliptopia/core/storage/json_configurator.dart';
 import 'package:cliptopia/core/utils.dart';
@@ -24,6 +25,13 @@ class Storage {
         "Creating Cliptopia Cache Storage ...");
     mkdir(combineHomePath(['.config', 'cliptopia', 'cache', 'images']),
         "Creating Cliptopia Image Cache Storage ...");
+
+    // Initializing session logger ...
+    if (!ArgumentHandler.isDebugMode()) {
+      initSessionLog();
+    }
+
+    // Initializing preferences storage ...
     _storage = JsonConfigurator(configName: 'app-settings.json');
 
     // Writing Injector ...
