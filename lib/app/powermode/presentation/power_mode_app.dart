@@ -104,6 +104,22 @@ class _PowerModeAppState extends State<PowerModeApp> {
               rebuild();
             }
           },
+          const SingleActivator(LogicalKeyboardKey.keyT, alt: true): () {
+            PowerDataHandler.searchTypeUpdate(PowerSearchType.Text);
+            rebuild();
+          },
+          const SingleActivator(LogicalKeyboardKey.keyR, alt: true): () {
+            PowerDataHandler.searchTypeUpdate(PowerSearchType.Regex);
+            rebuild();
+          },
+          const SingleActivator(LogicalKeyboardKey.keyI, alt: true): () {
+            PowerDataHandler.searchTypeUpdate(PowerSearchType.Image);
+            rebuild();
+          },
+          const SingleActivator(LogicalKeyboardKey.keyC, alt: true): () {
+            PowerDataHandler.searchTypeUpdate(PowerSearchType.Comment);
+            rebuild();
+          },
         },
         child: Focus(
           focusNode: appFocusNode,

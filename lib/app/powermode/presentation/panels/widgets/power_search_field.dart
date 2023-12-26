@@ -22,6 +22,11 @@ class _PowerSearchFieldState extends State<PowerSearchField> {
     Future.delayed(
       const Duration(milliseconds: 500),
       () {
+        PowerDataHandler.searchTypeChangeListeners.add(() {
+          if (mounted) {
+            setState(() {});
+          }
+        });
         focusNode.requestFocus();
       },
     );
@@ -78,10 +83,8 @@ class _PowerSearchFieldState extends State<PowerSearchField> {
                 .toList(),
             value: PowerDataHandler.searchType,
             onChanged: (value) {
-              setState(() {
-                PowerDataHandler.searchTypeUpdate(value!);
-                focusNode.requestFocus();
-              });
+              PowerDataHandler.searchTypeUpdate(value!);
+              focusNode.requestFocus();
             },
           ),
         ),
