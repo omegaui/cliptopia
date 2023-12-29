@@ -38,10 +38,14 @@ class _SearchPanelState extends State<SearchPanel> {
   }
 
   Widget _buildEntityInfo() {
-    String message = PowerDataHandler.hoveringEntity == null
-        ? "Hover on any card to view when it was used recently"
-        : "${DateFormat.yMMMMEEEEd('en_us').format(PowerDataHandler.hoveringEntity!.time)} ${DateFormat('K:mm:ss a').format(PowerDataHandler.hoveringEntity!.time)}";
+    if (PowerDataHandler.hoveringEntity == null) {
+      return SizedBox(
+          key: ValueKey('hidden-state-${DateTime.now().toString()}'));
+    }
+    String message =
+        "${DateFormat.yMMMMEEEEd('en_us').format(PowerDataHandler.hoveringEntity!.time)} ${DateFormat('K:mm:ss a').format(PowerDataHandler.hoveringEntity!.time)}";
     return Row(
+      key: ValueKey('entity-info-${DateTime.now().toString()}'),
       mainAxisSize: MainAxisSize.min,
       children: [
         Icon(
@@ -85,7 +89,10 @@ class _SearchPanelState extends State<SearchPanel> {
           const Gap(11),
           const PowerSearchField(),
           const Gap(11),
-          _buildEntityInfo(),
+          AnimatedSwitcher(
+            duration: const Duration(milliseconds: 250),
+            child: _buildEntityInfo(),
+          ),
           Expanded(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -112,11 +119,18 @@ class _SearchPanelState extends State<SearchPanel> {
                 const Gap(8),
                 IconButton(
                   onPressed: () {
-                    if (isBackgroundServiceAlive) {
-                      showPowerSettings(context);
-                    } else {
-                      showDaemonManagerDialog(context);
-                    }
+                    PowerDataHandler.toggleSortMode();
+                  },
+                  icon: Image.asset(
+                    AppIcons.filter,
+                    width: 24,
+                  ),
+                ),
+                const Gap(8),
+                IconButton(
+                  tooltip: "Toggle Sorting Mode",
+                  onPressed: () {
+                    PowerDataHandler.toggleSortMode();
                   },
                   icon: Icon(
                     isBackgroundServiceAlive ? Icons.settings : Icons.warning,

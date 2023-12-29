@@ -24,3 +24,5 @@ enum PowerImageFilterType {
   i8By5,
   i5By8,
 }
+
+enum SortingMode { NewestFirst, OldestFirst }

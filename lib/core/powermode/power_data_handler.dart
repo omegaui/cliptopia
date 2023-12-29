@@ -8,6 +8,7 @@ import 'package:cliptopia/app/powermode/domain/entity/image_entity.dart';
 import 'package:cliptopia/app/powermode/domain/entity/recent_emoji_entity.dart';
 import 'package:cliptopia/app/powermode/domain/entity/text_entity.dart';
 import 'package:cliptopia/app/powermode/domain/entity/typedefs.dart';
+import 'package:cliptopia/app/powermode/presentation/power_mode_app.dart';
 import 'package:cliptopia/constants/typedefs.dart';
 import 'package:cliptopia/core/logger.dart';
 import 'package:cliptopia/core/powermode/power_data_store.dart';
@@ -15,6 +16,7 @@ import 'package:cliptopia/core/powermode/power_utils.dart';
 import 'package:cliptopia/core/storage/json_configurator.dart';
 import 'package:cliptopia/core/storage/storage.dart';
 import 'package:cliptopia/core/utils.dart';
+import 'package:cliptopia/widgets/message_bird.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_emoji/flutter_emoji.dart';
 
@@ -31,6 +33,8 @@ class PowerDataHandler {
   static ClipboardEntity? hoveringEntity;
 
   static PowerSearchType searchType = PowerSearchType.Text;
+
+  static SortingMode sortingMode = SortingMode.NewestFirst;
 
   static String searchText = "";
 
@@ -85,6 +89,30 @@ class PowerDataHandler {
             convertTextToDateFilter(dateStorage.get('type'));
       }
     }
+  }
+
+  static void _sort(List<dynamic> list) {
+    if (sortingMode == SortingMode.OldestFirst) {
+      list.sort((a, b) => a.entity.time.compareTo(b.entity.time));
+    } else {
+      list.sort((a, b) => b.entity.time.compareTo(a.entity.time));
+    }
+  }
+
+  static void toggleSortMode() {
+    if (sortingMode == SortingMode.NewestFirst) {
+      sortingMode = SortingMode.OldestFirst;
+    } else {
+      sortingMode = SortingMode.NewestFirst;
+    }
+    Messenger.show("Changed Sorting Mode to ${sortingMode.name}");
+    _sort(_images);
+    _sort(_colors);
+    _sort(_texts);
+    _sort(_recentEmojis);
+    _sort(_commands);
+    _sort(_files);
+    rebuildView(message: "Switched to SortingMode.${sortingMode.name}");
   }
 
   static void searchTypeUpdate(PowerSearchType type) {
