@@ -118,6 +118,7 @@ class _SearchPanelState extends State<SearchPanel> {
                 const DateFilter(),
                 const Gap(8),
                 IconButton(
+                  tooltip: "Toggle Sorting Mode",
                   onPressed: () {
                     PowerDataHandler.toggleSortMode();
                   },
@@ -128,9 +129,12 @@ class _SearchPanelState extends State<SearchPanel> {
                 ),
                 const Gap(8),
                 IconButton(
-                  tooltip: "Toggle Sorting Mode",
                   onPressed: () {
-                    PowerDataHandler.toggleSortMode();
+                    if (isBackgroundServiceAlive) {
+                      showPowerSettings(context);
+                    } else {
+                      showDaemonManagerDialog(context);
+                    }
                   },
                   icon: Icon(
                     isBackgroundServiceAlive ? Icons.settings : Icons.warning,
