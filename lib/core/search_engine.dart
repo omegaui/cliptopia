@@ -1,5 +1,4 @@
 import 'package:cliptopia/constants/typedefs.dart';
-import 'package:cliptopia/core/logger.dart';
 
 class SearchEngine {
   String _searchText = "";

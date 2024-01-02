@@ -1,5 +1,6 @@
 import 'package:cliptopia/config/assets/app_animations.dart';
 import 'package:cliptopia/config/themes/app_theme.dart';
+import 'package:cliptopia/core/storage/storage.dart';
 import 'package:cliptopia/widgets/app_close_button.dart';
 import 'package:cliptopia/widgets/topbar/top_bar.dart';
 import 'package:flutter/material.dart';
@@ -35,6 +36,8 @@ class EmojisLoadingStateView extends StatelessWidget {
                       AppAnimations.emojis,
                       width: 200,
                       reverse: true,
+                      animate: Storage.get(StorageKeys.animationEnabledKey,
+                          fallback: StorageValues.defaultAnimationEnabledKey),
                     ),
                   ),
                   const Align(

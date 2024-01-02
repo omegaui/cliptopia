@@ -36,6 +36,8 @@ class _DaemonManagerDialogState extends State<DaemonManagerDialog> {
         Lottie.asset(
           AppAnimations.downloading,
           width: 300,
+          animate: Storage.get(StorageKeys.animationEnabledKey,
+              fallback: StorageValues.defaultAnimationEnabledKey),
         ),
         Text(
           "Downloading Cliptopia Daemon",
@@ -181,6 +183,8 @@ class _DaemonManagerDialogState extends State<DaemonManagerDialog> {
                   Lottie.asset(
                     AppAnimations.connection,
                     width: 250,
+                    animate: Storage.get(StorageKeys.animationEnabledKey,
+                        fallback: StorageValues.defaultAnimationEnabledKey),
                   ),
                   Text(
                     "Please integrate the Cliptopia Daemon",
@@ -224,6 +228,8 @@ class _DaemonManagerDialogState extends State<DaemonManagerDialog> {
             AppAnimations.sleeping,
             width: 250,
             filterQuality: FilterQuality.high,
+            animate: Storage.get(StorageKeys.animationEnabledKey,
+                fallback: StorageValues.defaultAnimationEnabledKey),
           ),
           Text(
             "Looks like your cliptopia-daemon is not running",

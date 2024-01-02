@@ -256,12 +256,13 @@ class _SettingsInitializedStateViewState
                 ),
               ),
               Option(
-                title: "Enable animations",
-                description: "Toggle this to enable or disable animations",
+                title: "App Animations",
+                description:
+                    "Toggle animations for motion sensitive eyes, or other problems",
                 active: Storage.get(StorageKeys.animationEnabledKey,
                         fallback: StorageValues.defaultAnimationEnabledKey) ==
                     StorageValues.defaultAnimationEnabledKey,
-                icon: AppIcons.animation,
+                icon: AppIcons.animations,
                 onChanged: (enabled) {
                   setState(() {
                     Storage.set(StorageKeys.animationEnabledKey, enabled);
@@ -607,7 +608,12 @@ class _SettingsInitializedStateViewState
                       SizedBox(
                         width: MediaQuery.of(context).size.width,
                       ),
-                      Lottie.asset(AppAnimations.shield, width: 300),
+                      Lottie.asset(
+                        AppAnimations.shield,
+                        width: 300,
+                        animate: Storage.get(StorageKeys.animationEnabledKey,
+                            fallback: StorageValues.defaultAnimationEnabledKey),
+                      ),
                       Text(
                         "No content filter detected, looks like you also removed the default ones\nPlease not that any password or key you copy will be watched",
                         textAlign: TextAlign.center,

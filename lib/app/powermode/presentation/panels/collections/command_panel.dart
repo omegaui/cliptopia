@@ -126,6 +126,8 @@ class _CommandPanelState extends State<CommandPanel> {
                 child: Lottie.asset(
                   AppAnimations.commandsEmpty,
                   width: 200,
+                  animate: Storage.get(StorageKeys.animationEnabledKey,
+                      fallback: StorageValues.defaultAnimationEnabledKey),
                 ),
               ),
               Text(

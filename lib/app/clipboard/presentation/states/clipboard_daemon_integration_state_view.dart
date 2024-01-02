@@ -5,6 +5,7 @@ import 'package:cliptopia/app/clipboard/presentation/widgets/download_button.dar
 import 'package:cliptopia/config/assets/app_animations.dart';
 import 'package:cliptopia/config/assets/app_icons.dart';
 import 'package:cliptopia/config/themes/app_theme.dart';
+import 'package:cliptopia/core/storage/storage.dart';
 import 'package:cliptopia/widgets/app_close_button.dart';
 import 'package:cliptopia/widgets/topbar/backdrop_panel.dart';
 import 'package:cliptopia/widgets/topbar/top_bar.dart';
@@ -132,6 +133,10 @@ class _ClipboardDaemonIntegrationStateViewState
                           Lottie.asset(
                             AppAnimations.downloading,
                             width: 100,
+                            animate: Storage.get(
+                                StorageKeys.animationEnabledKey,
+                                fallback:
+                                    StorageValues.defaultAnimationEnabledKey),
                           ),
                       ],
                     ),

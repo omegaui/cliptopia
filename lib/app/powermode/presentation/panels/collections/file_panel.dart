@@ -1,10 +1,10 @@
 import 'package:cliptopia/app/powermode/domain/entity/typedefs.dart';
 import 'package:cliptopia/app/powermode/presentation/panels/widgets/file_card.dart';
-import 'package:cliptopia/core/powermode/power_utils.dart';
 import 'package:cliptopia/config/assets/app_animations.dart';
 import 'package:cliptopia/config/assets/app_icons.dart';
 import 'package:cliptopia/config/themes/app_theme.dart';
 import 'package:cliptopia/core/powermode/power_data_handler.dart';
+import 'package:cliptopia/core/powermode/power_utils.dart';
 import 'package:cliptopia/core/storage/storage.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -128,6 +128,8 @@ class _FilePanelState extends State<FilePanel> {
                     AppAnimations.filesEmpty,
                     width: 200,
                     repeat: false,
+                    animate: Storage.get(StorageKeys.animationEnabledKey,
+                        fallback: StorageValues.defaultAnimationEnabledKey),
                   ),
                 ),
                 Text(

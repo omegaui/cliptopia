@@ -1,6 +1,5 @@
 import 'package:cliptopia/app/filter/presentation/widgets/filter_dialog_button.dart';
 import 'package:cliptopia/app/powermode/domain/entity/typedefs.dart';
-import 'package:cliptopia/core/powermode/power_utils.dart';
 import 'package:cliptopia/config/assets/app_icons.dart';
 import 'package:cliptopia/config/themes/app_theme.dart';
 import 'package:cliptopia/constants/typedefs.dart';

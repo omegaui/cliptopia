@@ -171,6 +171,8 @@ class _ImagesPanelState extends State<ImagesPanel> {
                   AppAnimations.imagesEmpty,
                   width: 175,
                   repeat: false,
+                  animate: Storage.get(StorageKeys.animationEnabledKey,
+                      fallback: StorageValues.defaultAnimationEnabledKey),
                 ),
               ),
             ],

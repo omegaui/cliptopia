@@ -116,6 +116,7 @@ class StorageValues {
 
   static const defaultViewMode = 'default';
   static const backgroundViewMode = 'background';
-  static const defaultCliptopiaPath = 'cliptopia';
+  static const defaultCliptopiaPath =
+      '/usr/bin/cliptopia'; // manual installer default
   static const defaultAnimationEnabledKey = true;
 }

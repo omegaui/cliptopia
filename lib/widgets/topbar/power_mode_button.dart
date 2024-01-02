@@ -3,9 +3,9 @@ import 'dart:io';
 import 'package:cliptopia/config/assets/app_icons.dart';
 import 'package:cliptopia/config/themes/app_theme.dart';
 import 'package:cliptopia/core/app_session.dart';
-import 'package:cliptopia/core/storage/storage.dart';
 import 'package:cliptopia/core/powermode/power_utils.dart';
 import 'package:cliptopia/core/services/injector.dart';
+import 'package:cliptopia/core/storage/storage.dart';
 import 'package:flutter/material.dart';
 
 class PowerModeButton extends StatefulWidget {
@@ -39,11 +39,20 @@ class _PowerModeButtonState extends State<PowerModeButton> {
               fallback: StorageValues.defaultCliptopiaPath);
           if (await FileSystemEntity.type(cliptopiaPath) ==
               FileSystemEntityType.notFound) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
+            void notify() {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
                   content: Text(
-                      'The Cliptopia executable was not found at $cliptopiaPath. You might be running Cliptopia in development mode.')),
-            );
+                    'The Cliptopia executable was not found at $cliptopiaPath.\nYou might be running Cliptopia in development mode.'
+                    '\nIf not installed from source, you should create a link to the executable (`/usr/bin/cliptopia`)',
+                    style: AppTheme.fontSize(14).withColor(AppTheme.background),
+                  ),
+                  showCloseIcon: true,
+                ),
+              );
+            }
+
+            notify();
           } else {
             await Process.start(cliptopiaPath, ['--silent', '--power']);
             Injector.find<AppSession>().endSession();

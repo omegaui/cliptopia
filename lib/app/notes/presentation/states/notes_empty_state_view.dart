@@ -7,6 +7,7 @@ import 'package:cliptopia/constants/typedefs.dart';
 import 'package:cliptopia/core/database/database.dart';
 import 'package:cliptopia/core/search_engine.dart';
 import 'package:cliptopia/core/services/injector.dart';
+import 'package:cliptopia/core/storage/storage.dart';
 import 'package:cliptopia/core/utils.dart';
 import 'package:cliptopia/widgets/app_close_button.dart';
 import 'package:cliptopia/widgets/topbar/backdrop_panel.dart';
@@ -126,6 +127,8 @@ class _NotesEmptyStateViewState extends State<NotesEmptyStateView> {
                         AppAnimations.getEmptyAnimationOnCause(widget.cause),
                         fit: BoxFit.fitWidth,
                         repeat: widget.cause != EmptyCause.noNoteElements,
+                        animate: Storage.get(StorageKeys.animationEnabledKey,
+                            fallback: StorageValues.defaultAnimationEnabledKey),
                       ),
                     ),
                   ),

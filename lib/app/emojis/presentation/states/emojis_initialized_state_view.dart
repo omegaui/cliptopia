@@ -8,6 +8,7 @@ import 'package:cliptopia/config/themes/app_theme.dart';
 import 'package:cliptopia/constants/typedefs.dart';
 import 'package:cliptopia/core/database/database.dart';
 import 'package:cliptopia/core/services/injector.dart';
+import 'package:cliptopia/core/storage/storage.dart';
 import 'package:cliptopia/widgets/app_close_button.dart';
 import 'package:cliptopia/widgets/topbar/top_bar.dart';
 import 'package:flutter/material.dart';
@@ -80,6 +81,8 @@ class _EmojisInitializedStateViewState
                 AppAnimations.emojis,
                 width: 200,
                 fit: BoxFit.fitWidth,
+                animate: Storage.get(StorageKeys.animationEnabledKey,
+                    fallback: StorageValues.defaultAnimationEnabledKey),
               ),
             ),
           ),

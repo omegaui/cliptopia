@@ -6,6 +6,7 @@ import 'package:cliptopia/constants/typedefs.dart';
 import 'package:cliptopia/core/database/database.dart';
 import 'package:cliptopia/core/search_engine.dart';
 import 'package:cliptopia/core/services/injector.dart';
+import 'package:cliptopia/core/storage/storage.dart';
 import 'package:cliptopia/widgets/app_close_button.dart';
 import 'package:cliptopia/widgets/topbar/backdrop_panel.dart';
 import 'package:cliptopia/widgets/topbar/top_bar.dart';
@@ -132,6 +133,8 @@ class _ClipboardEmptyStateViewState extends State<ClipboardEmptyStateView> {
                         AppAnimations.getEmptyAnimationOnCause(widget.cause),
                         fit: BoxFit.fitWidth,
                         repeat: widget.cause != EmptyCause.noImageElements,
+                        animate: Storage.get(StorageKeys.animationEnabledKey,
+                            fallback: StorageValues.defaultAnimationEnabledKey),
                       ),
                     ),
                   ),

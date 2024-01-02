@@ -47,6 +47,7 @@ class AppIcons {
   static const correct = 'assets/icons/settings/correct.png';
   static const incorrect = 'assets/icons/settings/incorrect.png';
   static const theme = 'assets/icons/settings/theme.png';
+  static const animations = 'assets/icons/settings/animations.png';
 
   // Power Mode
   static const copyLight = 'assets/icons/power-mode/copy-light.png';
@@ -74,5 +75,4 @@ class AppIcons {
   static const cache = 'assets/icons/cache.png';
   static const magic = 'assets/icons/magic.png';
   static const appIcon = 'assets/icons/app-icon.png';
-  static const animation = 'assets/icons/app-icon.png'; // TODO
 }
