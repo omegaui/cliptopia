@@ -1,5 +1,6 @@
 import 'package:cliptopia/app/powermode/domain/entity/typedefs.dart';
 import 'package:cliptopia/app/powermode/presentation/panels/widgets/file_card.dart';
+import 'package:cliptopia/core/powermode/power_utils.dart';
 import 'package:cliptopia/config/assets/app_animations.dart';
 import 'package:cliptopia/config/assets/app_icons.dart';
 import 'package:cliptopia/config/themes/app_theme.dart';
@@ -47,7 +48,7 @@ class _FilePanelState extends State<FilePanel> {
       onEnter: (e) => setState(() => hover = true),
       onExit: (e) => setState(() => hover = false),
       child: AnimatedContainer(
-        duration: const Duration(milliseconds: 250),
+        duration: getDuration(milliseconds: 250),
         curve: Curves.easeIn,
         margin: const EdgeInsets.only(left: 20),
         width: 500,

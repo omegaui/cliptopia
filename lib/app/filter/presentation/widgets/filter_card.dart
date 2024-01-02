@@ -1,4 +1,5 @@
 import 'package:cliptopia/config/themes/app_theme.dart';
+import 'package:cliptopia/core/powermode/power_utils.dart';
 import 'package:flutter/material.dart';
 
 class FilterCard extends StatefulWidget {
@@ -35,11 +36,11 @@ class _FilterCardState extends State<FilterCard> {
           widget.onPressed();
         },
         child: AnimatedScale(
-          duration: const Duration(milliseconds: 250),
+          duration: getDuration(milliseconds: 250),
           curve: Curves.decelerate,
           scale: hover ? 0.9 : 1.0,
           child: AnimatedContainer(
-            duration: const Duration(milliseconds: 250),
+            duration: getDuration(milliseconds: 250),
             curve: Curves.decelerate,
             height: 30,
             decoration: BoxDecoration(

@@ -5,6 +5,7 @@ import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:cliptopia/app/powermode/presentation/power_mode_app.dart';
 import 'package:cliptopia/app/welcome/presentation/welcome_dialog.dart';
 import 'package:cliptopia/config/themes/app_theme.dart';
+import 'package:cliptopia/core/powermode/power_utils.dart';
 import 'package:cliptopia/constants/meta_info.dart';
 import 'package:cliptopia/constants/usage.dart';
 import 'package:cliptopia/core/app_bug_report.dart';
@@ -134,7 +135,7 @@ class _AppState extends State<App> {
                   children: [
                     Align(
                       child: AnimatedSwitcher(
-                        duration: const Duration(milliseconds: 500),
+                        duration: getDuration(milliseconds: 500),
                         switchInCurve: Curves.ease,
                         switchOutCurve: Curves.ease,
                         transitionBuilder: (child, animation) {

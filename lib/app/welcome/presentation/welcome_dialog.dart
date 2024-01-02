@@ -1,5 +1,6 @@
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:cliptopia/app/welcome/presentation/widgets/feature_list.dart';
+import 'package:cliptopia/core/powermode/power_utils.dart';
 import 'package:cliptopia/config/themes/app_theme.dart';
 import 'package:cliptopia/constants/meta_info.dart';
 import 'package:cliptopia/core/services/route_service.dart';
@@ -13,7 +14,7 @@ void showWelcomeDialog() {
     context: RouteService.navigatorKey.currentContext!,
     barrierColor: Colors.transparent,
     barrierDismissible: false,
-    transitionDuration: const Duration(seconds: 1),
+    transitionDuration: getDuration(seconds: 1),
     transitionBuilder: (context, animation, secondaryAnimation, child) {
       return ScaleTransition(
         scale: animation,

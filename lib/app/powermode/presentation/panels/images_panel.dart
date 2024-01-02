@@ -91,7 +91,7 @@ class _ImagesPanelState extends State<ImagesPanel> {
                     child: MouseRegion(
                       cursor: SystemMouseCursors.click,
                       child: AnimatedContainer(
-                        duration: const Duration(milliseconds: 250),
+                        duration: getDuration(milliseconds: 250),
                         curve: Curves.easeIn,
                         padding: const EdgeInsets.symmetric(
                             horizontal: 8, vertical: 4),

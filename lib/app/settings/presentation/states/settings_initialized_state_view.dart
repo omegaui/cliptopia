@@ -256,6 +256,19 @@ class _SettingsInitializedStateViewState
                 ),
               ),
               Option(
+                title: "Enable animations",
+                description: "Toggle this to enable or disable animations",
+                active: Storage.get(StorageKeys.animationEnabledKey,
+                        fallback: StorageValues.defaultAnimationEnabledKey) ==
+                    StorageValues.defaultAnimationEnabledKey,
+                icon: AppIcons.animation,
+                onChanged: (enabled) {
+                  setState(() {
+                    Storage.set(StorageKeys.animationEnabledKey, enabled);
+                  });
+                },
+              ),
+              Option(
                 title: "Autostart Cliptopia Daemon",
                 description:
                     "Watches the clipboard in the background, for working seamlessly",
@@ -274,6 +287,7 @@ class _SettingsInitializedStateViewState
                 active: widget.controller.settingsRepo.isForcingXClip(),
                 icon: AppIcons.clipboard,
                 enabled: Platform.environment['WAYLAND_DISPLAY'] != null,
+                disableCause: "You not using wayland display on your system",
                 onChanged: (enabled) {
                   widget.controller.settingsRepo.setForceXClip(enabled);
                   setState(() {});

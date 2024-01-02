@@ -1,6 +1,7 @@
 import 'package:cliptopia/config/themes/app_theme.dart';
 import 'package:cliptopia/core/app_session.dart';
 import 'package:cliptopia/core/services/injector.dart';
+import 'package:cliptopia/core/powermode/power_utils.dart';
 import 'package:flutter/material.dart';
 
 class AppCloseButton extends StatefulWidget {
@@ -45,7 +46,7 @@ class _AppCloseButtonState extends State<AppCloseButton> {
           ),
           child: Center(
             child: AnimatedScale(
-              duration: const Duration(milliseconds: 250),
+              duration: getDuration(milliseconds: 250),
               scale: hover ? 1.0 : 1.3,
               curve: Curves.decelerate,
               child: const Icon(

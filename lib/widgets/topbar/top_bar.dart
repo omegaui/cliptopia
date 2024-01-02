@@ -2,6 +2,7 @@ import 'package:cliptopia/config/assets/app_icons.dart';
 import 'package:cliptopia/config/themes/app_theme.dart';
 import 'package:cliptopia/core/services/injector.dart';
 import 'package:cliptopia/core/services/route_service.dart';
+import 'package:cliptopia/core/powermode/power_utils.dart';
 import 'package:flutter/material.dart';
 
 class TopBar extends StatefulWidget {
@@ -22,7 +23,7 @@ class _TopBarState extends State<TopBar> {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-      duration: const Duration(milliseconds: 250),
+      duration: getDuration(milliseconds: 250),
       curve: Curves.easeIn,
       width: 500,
       height: 80,
@@ -146,7 +147,7 @@ class _RouteButtonState extends State<RouteButton> {
             children: [
               const SizedBox(height: 14),
               AnimatedScale(
-                duration: const Duration(milliseconds: 250),
+                duration: getDuration(milliseconds: 250),
                 scale: !hover ? 0.8 : 1.0,
                 curve: Curves.decelerate,
                 child: Image.asset(

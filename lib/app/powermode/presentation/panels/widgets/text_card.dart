@@ -1,5 +1,6 @@
 import 'package:cliptopia/app/powermode/domain/entity/text_entity.dart';
 import 'package:cliptopia/app/powermode/presentation/dialogs/entity_info_dialog.dart';
+import 'package:cliptopia/core/powermode/power_utils.dart';
 import 'package:cliptopia/config/themes/app_theme.dart';
 import 'package:cliptopia/core/powermode/power_data_handler.dart';
 import 'package:cliptopia/core/utils.dart';
@@ -52,7 +53,7 @@ class _TextCardState extends State<TextCard> {
             showInfoDialog(context, widget.textEntity.entity, "Text");
           },
           child: AnimatedContainer(
-            duration: const Duration(milliseconds: 250),
+            duration: getDuration(milliseconds: 250),
             curve: Curves.easeIn,
             height: 40,
             margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
@@ -101,7 +102,7 @@ class _TextCardState extends State<TextCard> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       AnimatedOpacity(
-                        duration: const Duration(milliseconds: 250),
+                        duration: getDuration(milliseconds: 250),
                         curve: Curves.easeIn,
                         opacity: hover ? 1.0 : 0.0,
                         child: Container(

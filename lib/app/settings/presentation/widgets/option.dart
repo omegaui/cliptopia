@@ -30,6 +30,10 @@ class Option extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (!enabled && disableCause == null) {
+      throw Exception('Option is disabled but no disableCause is provided');
+    }
+
     return Stack(
       children: [
         Align(
