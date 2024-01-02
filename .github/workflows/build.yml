@@ -31,13 +31,16 @@ jobs:
         with:
           entrypoint: appimage-builder
           args: --recipe ./AppImageBuilder.yml --skip-test
-      - name: Save build as artifacts
+      - name: Save Debian build as artifact
         uses: actions/upload-artifact@v2
         with:
-          name: build
-          path: |
-            ./*.AppImage
-            ./debian/packages/*.deb
+          name: Debian
+          path: ./debian/packages/*.deb
+      - name: Save AppImage build as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: AppImage
+          path: ./*.AppImage
       - name: Release
         if: false # TODO
         uses: marvinpinto/action-automatic-releases@latest
