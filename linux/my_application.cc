@@ -66,11 +66,12 @@ static void my_application_activate(GApplication* application) {
   gtk_window_set_resizable(window, FALSE);
 
   if (global_argv != NULL &&
-        hasFlag("--silent", length, global_argv) &&
-        hasFlag("--power", length, global_argv)) {
-    GdkScreen* screen = gtk_window_get_screen(window);
+            hasFlag("--silent", length, global_argv) &&
+            hasFlag("--power", length, global_argv)) {
+    GdkDisplay* display = gdk_display_get_default();
+    GdkMonitor* monitor = gdk_display_get_primary_monitor(display);
     GdkRectangle monitor_rect;
-    gdk_screen_get_monitor_geometry(screen, 0, &monitor_rect);
+    gdk_monitor_get_geometry(monitor, &monitor_rect);
     gtk_window_set_default_size(window, monitor_rect.width, monitor_rect.height);
   } else {
     gtk_window_set_default_size(window, 750, 650);
