@@ -2,6 +2,7 @@ import 'package:cliptopia/app/powermode/domain/entity/recent_emoji_entity.dart';
 import 'package:cliptopia/app/powermode/presentation/dialogs/entity_info_dialog.dart';
 import 'package:cliptopia/config/themes/app_theme.dart';
 import 'package:cliptopia/core/powermode/power_data_handler.dart';
+import 'package:cliptopia/core/powermode/power_utils.dart';
 import 'package:cliptopia/core/utils.dart';
 import 'package:flutter/material.dart';
 
@@ -39,7 +40,7 @@ class _EmojiCardState extends State<EmojiCard> {
           showInfoDialog(context, widget.emojiEntity.entity, "Emoji");
         },
         child: AnimatedContainer(
-          duration: const Duration(milliseconds: 250),
+          duration: getDuration(milliseconds: 250),
           curve: Curves.easeIn,
           width: 48,
           height: 48,

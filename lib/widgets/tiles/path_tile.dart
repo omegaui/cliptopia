@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:cliptopia/app/clipboard/domain/entity/clipboard_entity.dart';
 import 'package:cliptopia/config/assets/app_icons.dart';
 import 'package:cliptopia/config/themes/app_theme.dart';
+import 'package:cliptopia/core/powermode/power_utils.dart';
 import 'package:cliptopia/core/storage/storage.dart';
 import 'package:cliptopia/core/utils.dart';
 import 'package:cliptopia/widgets/message_bird.dart';
@@ -33,7 +34,7 @@ class _PathTileState extends State<PathTile> {
       onEnter: (e) => setState(() => hover = true),
       onExit: (e) => setState(() => hover = false),
       child: AnimatedContainer(
-        duration: const Duration(milliseconds: 250),
+        duration: getDuration(milliseconds: 250),
         curve: Curves.easeIn,
         width: 200,
         height: 100,
@@ -142,7 +143,7 @@ class _PathTileState extends State<PathTile> {
               child: Transform.scale(
                 scale: 0.6,
                 child: AnimatedOpacity(
-                  duration: const Duration(milliseconds: 250),
+                  duration: getDuration(milliseconds: 250),
                   opacity: hover ? 1.0 : 0.0,
                   child: Container(
                     padding: const EdgeInsets.all(8),

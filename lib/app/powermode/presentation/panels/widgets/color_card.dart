@@ -42,7 +42,7 @@ class _ColorCardState extends State<ColorCard> {
               context, widget.colorEntity.entity, "Color (Hex Code)");
         },
         child: AnimatedContainer(
-          duration: const Duration(milliseconds: 250),
+          duration: getDuration(milliseconds: 250),
           curve: Curves.easeIn,
           width: 100,
           height: 32,
@@ -63,7 +63,7 @@ class _ColorCardState extends State<ColorCard> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               AnimatedContainer(
-                duration: const Duration(milliseconds: 250),
+                duration: getDuration(milliseconds: 250),
                 curve: Curves.easeIn,
                 width: 20,
                 height: 20,

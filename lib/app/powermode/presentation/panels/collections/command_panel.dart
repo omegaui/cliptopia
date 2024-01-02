@@ -3,6 +3,7 @@ import 'package:cliptopia/config/assets/app_animations.dart';
 import 'package:cliptopia/config/assets/app_icons.dart';
 import 'package:cliptopia/config/themes/app_theme.dart';
 import 'package:cliptopia/core/powermode/power_data_handler.dart';
+import 'package:cliptopia/core/powermode/power_utils.dart';
 import 'package:cliptopia/core/storage/storage.dart';
 import 'package:cliptopia/widgets/tag.dart';
 import 'package:flutter/material.dart';
@@ -46,7 +47,7 @@ class _CommandPanelState extends State<CommandPanel> {
       onEnter: (e) => setState(() => hover = true),
       onExit: (e) => setState(() => hover = false),
       child: AnimatedContainer(
-        duration: const Duration(milliseconds: 250),
+        duration: getDuration(milliseconds: 250),
         curve: Curves.easeIn,
         margin: const EdgeInsets.only(left: 20),
         width: 520,

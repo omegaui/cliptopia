@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:cliptopia/app/powermode/domain/entity/typedefs.dart';
 import 'package:cliptopia/core/powermode/power_data_handler.dart';
+import 'package:cliptopia/core/storage/storage.dart';
 import 'package:cliptopia/core/utils.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
@@ -149,4 +150,14 @@ class IncognitoLock {
   static bool isLocked() {
     return lockFile.existsSync();
   }
+}
+
+Duration getDuration({int milliseconds = 0, int seconds = 0, int minutes = 0}) {
+  final isAnimationOn = Storage.get(StorageKeys.animationEnabledKey,
+      fallback: StorageValues.defaultAnimationEnabledKey);
+
+  if (!isAnimationOn) {
+    return Duration.zero;
+  }
+  return Duration(milliseconds: milliseconds, seconds: seconds, minutes: minutes);
 }

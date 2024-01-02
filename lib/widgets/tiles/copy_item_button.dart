@@ -1,6 +1,7 @@
 import 'package:cliptopia/app/clipboard/domain/entity/clipboard_entity.dart';
 import 'package:cliptopia/config/assets/app_icons.dart';
 import 'package:cliptopia/config/themes/app_theme.dart';
+import 'package:cliptopia/core/powermode/power_utils.dart';
 import 'package:cliptopia/core/utils.dart';
 import 'package:flutter/material.dart';
 
@@ -43,11 +44,11 @@ class _CopyItemButtonState extends State<CopyItemButton> {
             child: Padding(
               padding: const EdgeInsets.only(right: 8.0, bottom: 8.0),
               child: AnimatedScale(
-                duration: const Duration(milliseconds: 250),
+                duration: getDuration(milliseconds: 250),
                 curve: Curves.easeIn,
                 scale: hover ? 1.2 : 1.0,
                 child: AnimatedRotation(
-                  duration: const Duration(milliseconds: 250),
+                  duration: getDuration(milliseconds: 250),
                   curve: Curves.easeIn,
                   turns: hover ? -0.05 : 0,
                   child: Image.asset(

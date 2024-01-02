@@ -2,6 +2,7 @@ import 'package:cliptopia/app/powermode/presentation/dialogs/daemon_manager_dial
 import 'package:cliptopia/app/powermode/presentation/dialogs/power_mode_settings.dart';
 import 'package:cliptopia/app/powermode/presentation/panels/widgets/date_filter.dart';
 import 'package:cliptopia/app/powermode/presentation/panels/widgets/power_search_field.dart';
+import 'package:cliptopia/core/powermode/power_utils.dart';
 import 'package:cliptopia/config/assets/app_icons.dart';
 import 'package:cliptopia/config/themes/app_theme.dart';
 import 'package:cliptopia/core/powermode/power_data_handler.dart';
@@ -90,7 +91,7 @@ class _SearchPanelState extends State<SearchPanel> {
           const PowerSearchField(),
           const Gap(11),
           AnimatedSwitcher(
-            duration: const Duration(milliseconds: 250),
+            duration: getDuration(milliseconds: 250),
             child: _buildEntityInfo(),
           ),
           Expanded(

@@ -1,4 +1,5 @@
 import 'package:cliptopia/config/themes/app_theme.dart';
+import 'package:cliptopia/core/powermode/power_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -64,7 +65,7 @@ class _MessageBirdState extends State<MessageBird>
       // ascending to the top ...
       flightController
           .animateTo(1,
-              duration: const Duration(milliseconds: 500), curve: Curves.easeIn)
+              duration: getDuration(milliseconds: 500), curve: Curves.easeIn)
           .whenComplete(() async {
         setState(() {
           ascending = true;
@@ -78,7 +79,7 @@ class _MessageBirdState extends State<MessageBird>
         await Future.delayed(const Duration(milliseconds: 1500));
         flightController
             .animateBack(0,
-                duration: const Duration(milliseconds: 500),
+                duration: getDuration(milliseconds: 500),
                 curve: Curves.easeIn)
             .whenComplete(() async {
           setState(() {
@@ -161,13 +162,13 @@ class _MessageBirdState extends State<MessageBird>
       color: Colors.transparent,
       child: AnimatedScale(
         scale: _getScale(),
-        duration: const Duration(milliseconds: 500),
+        duration: getDuration(milliseconds: 500),
         child: AnimatedSlide(
           offset: _getOffset(),
-          duration: const Duration(milliseconds: 500),
+          duration: getDuration(milliseconds: 500),
           child: AnimatedRotation(
             turns: _getTurns(),
-            duration: const Duration(seconds: 1),
+            duration: getDuration(seconds: 1),
             child: FittedBox(
               child: Container(
                 padding:

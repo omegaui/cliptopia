@@ -1,5 +1,6 @@
 import 'package:cliptopia/app/filter/data/filter_repository.dart';
 import 'package:cliptopia/app/filter/presentation/dialog/filter_dialog.dart';
+import 'package:cliptopia/core/powermode/power_utils.dart';
 import 'package:cliptopia/config/assets/app_icons.dart';
 import 'package:cliptopia/config/themes/app_theme.dart';
 import 'package:cliptopia/constants/typedefs.dart';
@@ -42,22 +43,25 @@ class _FilterButtonState extends State<FilterButton> {
             showFilterDialog();
           }
         },
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 250),
-          curve: Curves.decelerate,
-          width: 50,
-          height: 50,
-          decoration: BoxDecoration(
-            color: (filterRepo.activeFilter != Filter.defaultFilter)
-                ? AppTheme.filterActiveColor
-                : AppTheme.buttonSurfaceColor,
-            borderRadius: BorderRadius.circular(hover ? 15 : 30),
-          ),
-          child: Center(
-            child: Image.asset(
-              AppIcons.filter,
-              width: 32,
-              height: 32,
+        child: Tooltip(
+          message: 'Filter Button',
+          child: AnimatedContainer(
+            duration: getDuration(milliseconds: 250),
+            curve: Curves.decelerate,
+            width: 50,
+            height: 50,
+            decoration: BoxDecoration(
+              color: (filterRepo.activeFilter != Filter.defaultFilter)
+                  ? AppTheme.filterActiveColor
+                  : AppTheme.buttonSurfaceColor,
+              borderRadius: BorderRadius.circular(hover ? 15 : 30),
+            ),
+            child: Center(
+              child: Image.asset(
+                AppIcons.filter,
+                width: 32,
+                height: 32,
+              ),
             ),
           ),
         ),

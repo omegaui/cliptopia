@@ -4,6 +4,7 @@ import 'package:cliptopia/config/themes/app_theme.dart';
 import 'package:cliptopia/core/app_bug_report.dart';
 import 'package:cliptopia/core/logger.dart';
 import 'package:cliptopia/core/services/route_service.dart';
+import 'package:cliptopia/core/powermode/power_utils.dart';
 import 'package:cliptopia/core/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -147,7 +148,7 @@ Widget linkText({required String text, required String url}) {
             );
           },
           child: AnimatedSwitcher(
-            duration: const Duration(milliseconds: 250),
+            duration: getDuration(milliseconds: 250),
             transitionBuilder: (child, animation) {
               return FadeTransition(
                 opacity: animation,

@@ -99,6 +99,8 @@ class TempStorage {
 class StorageKeys {
   StorageKeys._();
 
+  static const cliptopiaPath = 'cliptopia-path';
+  static const animationEnabledKey = 'animationEnabled';
   static const hideImagePanelKey = 'hide-image-panel';
   static const sensitivity = 'sensitivity';
   static const viewMode = 'view-mode';
@@ -114,4 +116,6 @@ class StorageValues {
 
   static const defaultViewMode = 'default';
   static const backgroundViewMode = 'background';
+  static const defaultCliptopiaPath = 'cliptopia';
+  static const defaultAnimationEnabledKey = true;
 }

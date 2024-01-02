@@ -1,5 +1,6 @@
 import 'package:cliptopia/app/clipboard/domain/entity/clipboard_entity.dart';
 import 'package:cliptopia/config/themes/app_theme.dart';
+import 'package:cliptopia/core/powermode/power_utils.dart';
 import 'package:cliptopia/core/utils.dart';
 import 'package:cliptopia/widgets/tiles/copy_item_button.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ class TextTile extends StatelessWidget {
   Widget build(BuildContext context) {
     bool emoji = isEmoji(entity.data);
     return AnimatedContainer(
-      duration: const Duration(milliseconds: 250),
+      duration: getDuration(milliseconds: 250),
       curve: Curves.easeIn,
       width: 200,
       height: 100,

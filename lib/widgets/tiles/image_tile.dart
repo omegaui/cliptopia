@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:cliptopia/app/clipboard/domain/entity/clipboard_entity.dart';
 import 'package:cliptopia/config/themes/app_theme.dart';
+import 'package:cliptopia/core/powermode/power_utils.dart';
 import 'package:cliptopia/core/storage/storage.dart';
 import 'package:cliptopia/core/utils.dart';
 import 'package:cliptopia/widgets/tiles/copy_item_button.dart';
@@ -79,7 +80,7 @@ class _ImageTileState extends State<ImageTile> {
 
   Widget _buildContent({width, height, imageWidth}) {
     return AnimatedContainer(
-      duration: const Duration(milliseconds: 250),
+      duration: getDuration(milliseconds: 250),
       curve: Curves.easeIn,
       width: width,
       height: height,

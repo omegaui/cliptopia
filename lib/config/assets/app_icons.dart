@@ -74,4 +74,5 @@ class AppIcons {
   static const cache = 'assets/icons/cache.png';
   static const magic = 'assets/icons/magic.png';
   static const appIcon = 'assets/icons/app-icon.png';
+  static const animation = 'assets/icons/app-icon.png'; // TODO
 }

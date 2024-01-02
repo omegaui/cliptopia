@@ -256,6 +256,19 @@ class _SettingsInitializedStateViewState
                 ),
               ),
               Option(
+                title: "Enable animations",
+                description: "Toggle this to enable or disable animations",
+                active: Storage.get(StorageKeys.animationEnabledKey,
+                        fallback: StorageValues.defaultAnimationEnabledKey) ==
+                    StorageValues.defaultAnimationEnabledKey,
+                icon: AppIcons.animation,
+                onChanged: (enabled) {
+                  setState(() {
+                    Storage.set(StorageKeys.animationEnabledKey, enabled);
+                  });
+                },
+              ),
+              Option(
                 title: "Autostart Cliptopia Daemon",
                 description:
                     "Watches the clipboard in the background, for working seamlessly",

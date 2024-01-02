@@ -1,5 +1,6 @@
 import 'package:cliptopia/app/filter/presentation/widgets/filter_dialog_button.dart';
 import 'package:cliptopia/app/powermode/domain/entity/typedefs.dart';
+import 'package:cliptopia/core/powermode/power_utils.dart';
 import 'package:cliptopia/config/assets/app_icons.dart';
 import 'package:cliptopia/config/themes/app_theme.dart';
 import 'package:cliptopia/constants/typedefs.dart';
@@ -32,7 +33,7 @@ class _DateFilterState extends State<DateFilter> {
         onEnter: (e) => setState(() => hover = true),
         onExit: (e) => setState(() => hover = false),
         child: AnimatedContainer(
-          duration: const Duration(milliseconds: 250),
+          duration: getDuration(milliseconds: 250),
           curve: Curves.easeIn,
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
           decoration: BoxDecoration(

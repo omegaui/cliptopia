@@ -1,4 +1,5 @@
 import 'package:cliptopia/config/themes/app_theme.dart';
+import 'package:cliptopia/core/powermode/power_utils.dart';
 import 'package:flutter/material.dart';
 
 class CategoryButton extends StatefulWidget {
@@ -30,13 +31,13 @@ class _CategoryButtonState extends State<CategoryButton> {
       child: GestureDetector(
         onTap: widget.onPressed,
         child: AnimatedScale(
-          duration: const Duration(milliseconds: 250),
+          duration: getDuration(milliseconds: 250),
           curve: Curves.easeIn,
           scale: (hover && !widget.active) ? 1.4 : 1.0,
           child: Tooltip(
             message: widget.tooltip,
             child: AnimatedContainer(
-              duration: const Duration(milliseconds: 250),
+              duration: getDuration(milliseconds: 250),
               curve: Curves.easeIn,
               width: widget.active ? 48 : 32,
               height: 48,

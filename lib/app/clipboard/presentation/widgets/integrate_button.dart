@@ -1,4 +1,5 @@
 import 'package:cliptopia/config/themes/app_theme.dart';
+import 'package:cliptopia/core/powermode/power_utils.dart';
 import 'package:flutter/material.dart';
 
 class IntegrateButton extends StatefulWidget {
@@ -36,7 +37,7 @@ class _IntegrateButtonState extends State<IntegrateButton> {
             widget.onPressed();
           },
           child: AnimatedContainer(
-            duration: const Duration(milliseconds: 250),
+            duration: getDuration(milliseconds: 250),
             curve: Curves.decelerate,
             width: 120,
             height: 40,

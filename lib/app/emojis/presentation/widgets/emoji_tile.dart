@@ -1,5 +1,6 @@
 import 'package:cliptopia/app/clipboard/domain/entity/clipboard_entity.dart';
 import 'package:cliptopia/app/emojis/domain/emoji_entity.dart';
+import 'package:cliptopia/core/powermode/power_utils.dart';
 import 'package:cliptopia/config/themes/app_theme.dart';
 import 'package:cliptopia/core/utils.dart';
 import 'package:flutter/material.dart';
@@ -48,7 +49,7 @@ class _EmojiTileState extends State<EmojiTile> {
           ),
           child: Center(
             child: AnimatedScale(
-              duration: const Duration(milliseconds: 150),
+              duration: getDuration(milliseconds: 150),
               curve: Curves.easeIn,
               scale: hover ? 1.2 : 1.0,
               child: Text(

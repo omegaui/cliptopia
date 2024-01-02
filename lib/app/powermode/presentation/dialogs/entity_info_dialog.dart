@@ -2,6 +2,7 @@ import 'package:cliptopia/app/clipboard/domain/entity/clipboard_entity.dart';
 import 'package:cliptopia/app/powermode/domain/entity_info.dart';
 import 'package:cliptopia/app/powermode/presentation/power_mode_app.dart';
 import 'package:cliptopia/app/settings/presentation/widgets/option.dart';
+import 'package:cliptopia/core/powermode/power_utils.dart';
 import 'package:cliptopia/config/assets/app_icons.dart';
 import 'package:cliptopia/config/themes/app_theme.dart';
 import 'package:flutter/material.dart';
@@ -246,7 +247,7 @@ void showInfoDialog(
     },
   );
   Future.delayed(
-    const Duration(milliseconds: 100),
+    getDuration(milliseconds: 100),
     () => _localFocusNode.requestFocus(),
   );
 }
