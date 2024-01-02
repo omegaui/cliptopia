@@ -274,6 +274,7 @@ class _SettingsInitializedStateViewState
                 active: widget.controller.settingsRepo.isForcingXClip(),
                 icon: AppIcons.clipboard,
                 enabled: Platform.environment['WAYLAND_DISPLAY'] != null,
+                disableCause: "You not using wayland display on your system",
                 onChanged: (enabled) {
                   widget.controller.settingsRepo.setForceXClip(enabled);
                   setState(() {});
