@@ -5,7 +5,7 @@ flutter_app:
 
 control:
   Package: Cliptopia
-  Version: 1.0.0+2
+  Version: 1.0.0+4
   Architecture: amd64
   Essential: no
   Priority: optional
