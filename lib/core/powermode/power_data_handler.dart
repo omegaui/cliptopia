@@ -84,9 +84,9 @@ class PowerDataHandler {
   static void init() {
     if (Storage.get('save-date-filter') ?? false) {
       if (dateStorage.get('range') != null) {
-        PowerDataHandler.date = DateRange.fromMap(dateStorage.get('range'));
         PowerDataHandler.dateFilterType =
             convertTextToDateFilter(dateStorage.get('type'));
+        useDate(PowerDataHandler.dateFilterType);
       }
     }
   }

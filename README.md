@@ -75,7 +75,7 @@ On some distros, like **Ubuntu with GNOME on Wayland**, xclip still works becaus
 
 ![img.png](media_Cliptopia/settings.png)
 
-#### Please note that Cliptopia is in beta until a stable version releases, which is expected to be released by the end of this month.
+#### Please note that Cliptopia is in beta until a stable version releases.
 
 ## Installation
 
