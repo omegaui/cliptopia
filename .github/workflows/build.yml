@@ -24,7 +24,7 @@ jobs:
           # flutter test
       - name: Build Debian using flutter_to_debian
         run: |
-          flutter build linux
+          flutter build linux --release
           flutter pub run flutter_to_debian:main
       - name: Build AppImage using appimage-builder
         uses: docker://appimagecrafters/appimage-builder:0.8.5
