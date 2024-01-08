@@ -1,4 +1,8 @@
 #include "my_application.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
 #include <bitsdojo_window_linux/bitsdojo_window_plugin.h>
 
 #include <flutter_linux/flutter_linux.h>
@@ -11,6 +15,39 @@
 #include <stdbool.h>
 
 static gchar** global_argv = NULL;
+
+
+int readMonitorIndex() {
+    // Get the user's home directory
+    const char *homeDir = getenv("HOME");
+    if (homeDir == NULL) {
+        fprintf(stderr, "Error: HOME environment variable not set.\n");
+        return 0;
+    }
+
+    // Create the full path to the monitor configuration file
+    char configFile[256];
+    snprintf(configFile, sizeof(configFile), "%s/.config/cliptopia/monitor.index", homeDir);
+
+    // Open the file for reading
+    FILE *file = fopen(configFile, "r");
+    if (file == NULL) {
+        fprintf(stderr, "Error opening file: %s\n", configFile);
+        return 0;
+    }
+
+    // Read the integer from the file
+    int monitorIndex = 0;
+    if (fscanf(file, "%d", &monitorIndex) != 1) {
+        fprintf(stderr, "Error reading monitor index from file: %s\n", configFile);
+        fclose(file);
+    }
+
+    // Close the file
+    fclose(file);
+
+    return monitorIndex;
+}
 
 bool hasFlag(const char* flag, int argc, char** argv) {
     for (int i = 1; i < argc; ++i) {
@@ -66,11 +103,13 @@ static void my_application_activate(GApplication* application) {
   gtk_window_set_resizable(window, FALSE);
 
   if (global_argv != NULL &&
-          hasFlag("--silent", length, global_argv) &&
-          hasFlag("--power", length, global_argv)) {
+        hasFlag("--silent", length, global_argv) &&
+        hasFlag("--power", length, global_argv)) {
+    // Read monitor index from the monitor config file
+    int monitorIndex = readMonitorIndex();
     GdkScreen* screen = gtk_window_get_screen(window);
     GdkRectangle monitor_rect;
-    gdk_screen_get_monitor_geometry(screen, 0, &monitor_rect);
+    gdk_screen_get_monitor_geometry(screen, monitorIndex, &monitor_rect);
     gtk_window_set_default_size(window, monitor_rect.width, monitor_rect.height);
   } else {
     gtk_window_set_default_size(window, 750, 650);

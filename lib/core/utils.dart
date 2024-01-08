@@ -45,6 +45,17 @@ String _pgrep(pattern) {
   return Process.runSync('pgrep', ['-x', pattern]).stdout;
 }
 
+int getMonitorCount() {
+  if (ArgumentHandler.isDebugMode()) {
+    return 3; // for enabling the full settings interface
+  }
+  return WidgetsBinding.instance.platformDispatcher.views.length;
+}
+
+bool isMultiMonitorSetup() {
+  return getMonitorCount() > 1;
+}
+
 bool isDaemonAlive() {
   final daemonProcess = _pgrep('cliptopia-daemon');
   final devProcess = _pgrep('dart:cliptopia_');

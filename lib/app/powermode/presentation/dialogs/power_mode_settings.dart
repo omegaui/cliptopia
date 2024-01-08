@@ -4,7 +4,9 @@ import 'package:cliptopia/config/assets/app_artworks.dart';
 import 'package:cliptopia/config/assets/app_icons.dart';
 import 'package:cliptopia/config/themes/app_theme.dart';
 import 'package:cliptopia/constants/meta_info.dart';
+import 'package:cliptopia/core/argument_handler.dart';
 import 'package:cliptopia/core/storage/storage.dart';
+import 'package:cliptopia/core/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -226,6 +228,78 @@ class _PowerModeSettingsState extends State<PowerModeSettings> {
                     ],
                   ),
                 ),
+                const Gap(25),
+                if (isMultiMonitorSetup()) ...[
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 36,
+                      right: 36,
+                    ),
+                    child: SizedBox(
+                      height: 50,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            AppIcons.desktop,
+                            width: 48,
+                            height: 48,
+                            fit: BoxFit.fitWidth,
+                          ),
+                          const SizedBox(width: 11),
+                          Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Choose the target monitor${ArgumentHandler.isDebugMode() ? " (In Test Mode)" : ""}",
+                                style: AppTheme.fontSize(16).makeBold(),
+                              ),
+                              const SizedBox(height: 5),
+                              Text(
+                                "Select the monitor on which the power mode window should appear",
+                                style: AppTheme.fontSize(14),
+                              ),
+                            ],
+                          ),
+                          Expanded(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                SizedBox(
+                                  width: 40,
+                                  child: DropdownButton<int>(
+                                    items: List<int>.generate(getMonitorCount(),
+                                            (index) => index + 1)
+                                        .map(
+                                          (e) => DropdownMenuItem(
+                                            value: e,
+                                            child: Text(
+                                              "$e",
+                                              style: AppTheme.fontSize(14)
+                                                  .makeBold(),
+                                            ),
+                                          ),
+                                        )
+                                        .toList(),
+                                    value:
+                                        Storage.getSelectedMonitorIndex() + 1,
+                                    onChanged: (int? value) {
+                                      setState(() {
+                                        Storage.setSelectedMonitorIndex(
+                                            (value ?? 1) - 1);
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
                 const Gap(25),
                 Option(
                   title: "Keep the images hidden until triggered",

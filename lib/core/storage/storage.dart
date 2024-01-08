@@ -10,6 +10,8 @@ import 'package:flutter/services.dart';
 class Storage {
   static late final File copyScript;
   static late final File commandExecutorScript;
+  static final File monitorIndexFile =
+      File(combineHomePath(['.config', 'cliptopia', 'monitor.index']));
   static late final JsonConfigurator _storage;
 
   Storage._();
@@ -73,6 +75,17 @@ class Storage {
 
   static bool isSensitivityOn() {
     return get(StorageKeys.sensitivity, fallback: false);
+  }
+
+  static int getSelectedMonitorIndex() {
+    if (!monitorIndexFile.existsSync()) {
+      return 0;
+    }
+    return int.tryParse(monitorIndexFile.readAsStringSync()) ?? 0;
+  }
+
+  static void setSelectedMonitorIndex(int index) {
+    monitorIndexFile.writeAsStringSync("$index");
   }
 }
 
