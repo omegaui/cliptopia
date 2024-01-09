@@ -22,6 +22,7 @@ int readMonitorIndex() {
     const char *homeDir = getenv("HOME");
     if (homeDir == NULL) {
         fprintf(stderr, "Error: HOME environment variable not set.\n");
+        fprintf(stderr, "Please fix this or else power mode window will not open in the desired monitor.\n");
         return 0;
     }
 
@@ -32,7 +33,7 @@ int readMonitorIndex() {
     // Open the file for reading
     FILE *file = fopen(configFile, "r");
     if (file == NULL) {
-        fprintf(stderr, "Error opening file: %s\n", configFile);
+        fprintf(stderr, "Couldn't open monitor-config file: Ignore this if this is not a multi-monitor setup\n");
         return 0;
     }
 

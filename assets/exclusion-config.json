@@ -1,20 +1,20 @@
 {
-  "exclusions": [
-    {
-      "name": "GitHub Token",
-      "pattern": "^[a-zA-Z0-9]{40}$"
-    },
-    {
-      "name": "Gitlab Token",
-      "pattern": "^[a-zA-Z0-9_-]{20,}$"
-    },
-    {
-      "name": "Git HTTPS Url",
-      "pattern": "^https:\\/\\/([^:]+):([^@]+)@([^\\/]+)\\/(.+\/[^.]+)\\.git$"
-    },
-    {
-      "name": "SSH Key",
-      "pattern": "^ssh-rsa\\s+[A-Za-z0-9+/]+[=]{0,3}(\\s+[^\\s]+)?\\s*$"
-    }
-  ]
+	"exclusions": [
+		{
+			"name": "GitHub Token",
+			"pattern": "^[a-zA-Z0-9]{40}$"
+		},
+		{
+			"name": "Gitlab Token",
+			"pattern": "^[a-zA-Z0-9_-]{20,}$"
+		},
+		{
+			"name": "Git HTTPS Url",
+			"pattern": "^https:\\/\\/([^:]+):([^@]+)@([^\\/]+)\\/(.+\/[^.]+)\\.git$"
+		},
+		{
+			"name": "SSH Key",
+			"pattern": "^ssh-rsa\\s+[A-Za-z0-9+/]+[=]{0,3}(\\s+[^\\s]+)?\\s*$"
+		}
+	]
 }

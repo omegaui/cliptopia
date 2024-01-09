@@ -16,7 +16,7 @@ class Storage {
 
   Storage._();
 
-  static void initSpace() async {
+  static Future<void> initSpace() async {
     mkdir(combineHomePath(['.config', 'cliptopia']),
         "Creating Cliptopia Storage Route ...");
     mkdir(combineHomePath(['.config', 'cliptopia', 'bug-reports']),

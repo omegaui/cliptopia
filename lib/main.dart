@@ -5,12 +5,12 @@ import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:cliptopia/app/powermode/presentation/power_mode_app.dart';
 import 'package:cliptopia/app/welcome/presentation/welcome_dialog.dart';
 import 'package:cliptopia/config/themes/app_theme.dart';
-import 'package:cliptopia/core/powermode/power_utils.dart';
 import 'package:cliptopia/constants/meta_info.dart';
 import 'package:cliptopia/constants/usage.dart';
 import 'package:cliptopia/core/app_bug_report.dart';
 import 'package:cliptopia/core/argument_handler.dart';
 import 'package:cliptopia/core/clipboard_engine.dart';
+import 'package:cliptopia/core/powermode/power_utils.dart';
 import 'package:cliptopia/core/services/injector.dart';
 import 'package:cliptopia/core/services/route_service.dart';
 import 'package:cliptopia/core/storage/storage.dart';
@@ -22,7 +22,7 @@ const normalSize = Size(750, 650);
 var windowSize = normalSize;
 
 void main(List<String> arguments) {
-  runZonedGuarded(() {
+  runZonedGuarded(() async {
     ArgumentHandler.init(arguments);
     if (!ArgumentHandler.validate()) {
       final unknownOptions = ArgumentHandler.getUnknownOptions();
@@ -52,7 +52,7 @@ void main(List<String> arguments) {
     WidgetsFlutterBinding.ensureInitialized();
 
     // Initializing App Storage
-    Storage.initSpace();
+    await Storage.initSpace();
 
     // Initializing Themes
     AppTheme.init();
