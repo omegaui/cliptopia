@@ -41,7 +41,6 @@ int readMonitorIndex() {
     int monitorIndex = 0;
     if (fscanf(file, "%d", &monitorIndex) != 1) {
         fprintf(stderr, "Error reading monitor index from file: %s\n", configFile);
-        fclose(file);
     }
 
     // Close the file
