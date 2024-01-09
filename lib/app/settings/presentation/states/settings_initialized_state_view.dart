@@ -288,7 +288,7 @@ class _SettingsInitializedStateViewState
                 active: widget.controller.settingsRepo.isForcingXClip(),
                 icon: AppIcons.clipboard,
                 enabled: Platform.environment['WAYLAND_DISPLAY'] != null,
-                disableCause: "You not using wayland display on your system",
+                disableCause: "Value of \$WAYLAND_DISPLAY is not set",
                 onChanged: (enabled) {
                   widget.controller.settingsRepo.setForceXClip(enabled);
                   setState(() {});
@@ -615,7 +615,7 @@ class _SettingsInitializedStateViewState
                             fallback: StorageValues.defaultAnimationEnabledKey),
                       ),
                       Text(
-                        "No content filter detected, looks like you also removed the default ones\nPlease not that any password or key you copy will be watched",
+                        "No content filter detected, looks like you also removed the default ones\nPlease note that any password or key you copy will be watched",
                         textAlign: TextAlign.center,
                         style: AppTheme.fontSize(14).makeBold(),
                       ),

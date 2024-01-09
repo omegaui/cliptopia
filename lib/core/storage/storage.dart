@@ -63,6 +63,17 @@ class Storage {
         ['+x', commandExecutorScript.path],
       );
     }
+
+    // Writing Exclusion Config ...
+    final exclusionConfig = File(
+        combineHomePath(['.config', 'cliptopia', 'exclusion-config.json']));
+
+    if (!exclusionConfig.existsSync()) {
+      prettyLog(value: "Writing the default exclusion-config ...");
+      final contents =
+          await rootBundle.loadString('assets/exclusion-config.json');
+      exclusionConfig.writeAsStringSync(contents, flush: true);
+    }
   }
 
   static dynamic get(String key, {fallback}) {
