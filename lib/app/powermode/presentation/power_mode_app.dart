@@ -6,11 +6,11 @@ import 'package:cliptopia/app/powermode/presentation/panels/colors_panel.dart';
 import 'package:cliptopia/app/powermode/presentation/panels/emoji_panel.dart';
 import 'package:cliptopia/app/powermode/presentation/panels/images_panel.dart';
 import 'package:cliptopia/app/powermode/presentation/panels/search_panel.dart';
+import 'package:cliptopia/config/assets/app_icons.dart';
 import 'package:cliptopia/config/themes/app_theme.dart';
 import 'package:cliptopia/core/app_session.dart';
 import 'package:cliptopia/core/logger.dart';
 import 'package:cliptopia/core/powermode/power_data_handler.dart';
-import 'package:cliptopia/core/powermode/power_data_store.dart';
 import 'package:cliptopia/core/services/injector.dart';
 import 'package:cliptopia/core/services/route_service.dart';
 import 'package:cliptopia/core/storage/storage.dart';
@@ -20,6 +20,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gap/gap.dart';
+
+import '../../../core/powermode/power_data_store.dart';
 
 final appFocusNode = FocusNode();
 
@@ -40,21 +42,33 @@ class PowerModeApp extends StatefulWidget {
 }
 
 class _PowerModeAppState extends State<PowerModeApp> {
+  bool initialized = false;
+
   @override
   void initState() {
     super.initState();
-    FlutterView view = WidgetsBinding.instance.platformDispatcher.views.first;
-    Size size = view.physicalSize;
-    windowSize = size;
-    PowerDataStore.init();
-    PowerDataHandler.searchTypeChangeListeners.add(() {
-      if (mounted) {
-        setState(() {});
-      }
-    });
-    Injector.init(
-      onRebuild: () {},
-      onFinished: () {},
+    start();
+  }
+
+  void start() {
+    Future(
+      () {
+        FlutterView view =
+            WidgetsBinding.instance.platformDispatcher.views.first;
+        Size size = view.physicalSize;
+        windowSize = size;
+        PowerDataStore.init();
+        PowerDataHandler.searchTypeChangeListeners.add(() {
+          rebuild();
+        });
+        Injector.init(
+          onRebuild: () {},
+          onFinished: () {
+            initialized = true;
+            rebuild();
+          },
+        );
+      },
     );
   }
 
@@ -64,8 +78,41 @@ class _PowerModeAppState extends State<PowerModeApp> {
     }
   }
 
+  Widget _buildInitializingView() {
+    return Container(
+      decoration: BoxDecoration(
+        color: PowerModeTheme.background,
+      ),
+      child: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Image.asset(
+              AppIcons.appIcon,
+            ),
+            Gap(30),
+            Material(
+              child: Directionality(
+                textDirection: TextDirection.ltr,
+                child: Text(
+                  "Reading your clipboard storage ...",
+                  style: AppTheme.fontSize(16),
+                ),
+              ),
+            ),
+            Gap(20),
+            CircularProgressIndicator(),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    if (!initialized) {
+      return _buildInitializingView();
+    }
     _appState = rebuild;
     final defaultViewMode = Storage.get(StorageKeys.viewMode,
             fallback: StorageValues.defaultViewMode) ==

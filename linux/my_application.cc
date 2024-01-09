@@ -103,8 +103,8 @@ static void my_application_activate(GApplication* application) {
   gtk_window_set_resizable(window, FALSE);
 
   if (global_argv != NULL &&
-        hasFlag("--silent", length, global_argv) &&
-        hasFlag("--power", length, global_argv)) {
+      hasFlag("--silent", length, global_argv) &&
+      hasFlag("--power", length, global_argv)) {
     // Read monitor index from the monitor config file
     int monitorIndex = readMonitorIndex();
     GdkScreen* screen = gtk_window_get_screen(window);
@@ -116,7 +116,6 @@ static void my_application_activate(GApplication* application) {
   }
 
   gtk_window_set_position(GTK_WINDOW(window), GTK_WIN_POS_CENTER);
-  gtk_widget_show(GTK_WIDGET(window));
 
   g_autoptr(FlDartProject) project = fl_dart_project_new();
   fl_dart_project_set_dart_entrypoint_arguments(project, self->dart_entrypoint_arguments);
@@ -127,6 +126,7 @@ static void my_application_activate(GApplication* application) {
 
   fl_register_plugins(FL_PLUGIN_REGISTRY(view));
 
+  gtk_widget_show(GTK_WIDGET(window));
   gtk_widget_grab_focus(GTK_WIDGET(view));
 }
 
