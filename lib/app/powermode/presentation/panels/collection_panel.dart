@@ -3,13 +3,19 @@
 import 'package:cliptopia/app/powermode/presentation/panels/collections/command_panel.dart';
 import 'package:cliptopia/app/powermode/presentation/panels/collections/file_panel.dart';
 import 'package:cliptopia/app/powermode/presentation/panels/collections/text_panel.dart';
+import 'package:cliptopia/app/powermode/presentation/power_mode_controller.dart';
 import 'package:cliptopia/config/themes/app_theme.dart';
 import 'package:cliptopia/core/powermode/power_data_handler.dart';
 import 'package:cliptopia/main.dart';
 import 'package:flutter/material.dart';
 
 class CollectionPanel extends StatefulWidget {
-  const CollectionPanel({super.key});
+  const CollectionPanel({
+    super.key,
+    required this.controller,
+  });
+
+  final PowerModeController controller;
 
   @override
   State<CollectionPanel> createState() => _CollectionPanelState();
@@ -46,7 +52,7 @@ class _CollectionPanelState extends State<CollectionPanel> {
       ),
       child: Row(
         children: [
-          TextPanel(),
+          TextPanel(controller: widget.controller),
           CommandPanel(),
           FilePanel(),
         ],

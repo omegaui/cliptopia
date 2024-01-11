@@ -1,5 +1,6 @@
 import 'package:cliptopia/app/powermode/domain/entity/typedefs.dart';
 import 'package:cliptopia/app/powermode/presentation/panels/widgets/text_card.dart';
+import 'package:cliptopia/app/powermode/presentation/power_mode_controller.dart';
 import 'package:cliptopia/config/assets/app_animations.dart';
 import 'package:cliptopia/config/assets/app_icons.dart';
 import 'package:cliptopia/config/themes/app_theme.dart';
@@ -11,7 +12,12 @@ import 'package:gap/gap.dart';
 import 'package:lottie/lottie.dart';
 
 class TextPanel extends StatefulWidget {
-  const TextPanel({super.key});
+  const TextPanel({
+    super.key,
+    required this.controller,
+  });
+
+  final PowerModeController controller;
 
   @override
   State<TextPanel> createState() => _TextPanelState();
@@ -90,7 +96,18 @@ class _TextPanelState extends State<TextPanel> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        if (!isEmpty)
+                        if (!isEmpty) ...[
+                          IconButton(
+                            onPressed: () {
+                              widget.controller.gotoTextView();
+                            },
+                            tooltip: "Expand this view",
+                            icon: Icon(
+                              Icons.fullscreen_exit,
+                              color: Colors.grey.shade800,
+                            ),
+                          ),
+                          const Gap(5),
                           IconButton(
                             onPressed: () {
                               for (var e in PowerDataHandler.texts) {
@@ -104,7 +121,8 @@ class _TextPanelState extends State<TextPanel> {
                               color: Colors.red,
                             ),
                           ),
-                        const Gap(5),
+                          const Gap(5),
+                        ],
                       ],
                     ),
                   ),

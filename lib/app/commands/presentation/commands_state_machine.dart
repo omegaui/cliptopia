@@ -43,8 +43,10 @@ class CommandsStateMachine extends StateMachine<CommandsState, CommandsEvent> {
     switch (e.runtimeType) {
       case CommandsLoadingEvent:
         currentState = CommandsLoadingState();
+        break;
       case CommandsEmptyEvent:
         currentState = CommandsEmptyState((e as CommandsEmptyEvent).cause);
+        break;
       case CommandsInitializedEvent:
         currentState = CommandsInitializedState();
     }

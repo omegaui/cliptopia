@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:bitsdojo_window/bitsdojo_window.dart';
-import 'package:cliptopia/app/powermode/presentation/power_mode_app.dart';
+import 'package:cliptopia/app/powermode/presentation/power_mode_view.dart';
 import 'package:cliptopia/app/welcome/presentation/welcome_dialog.dart';
 import 'package:cliptopia/config/themes/app_theme.dart';
 import 'package:cliptopia/constants/meta_info.dart';
@@ -59,7 +59,7 @@ void main(List<String> arguments) {
 
     if (ArgumentHandler.isPowerMode()) {
       PowerModeTheme.init();
-      return runApp(const PowerModeApp());
+      return runApp(const PowerModeView());
     }
 
     return runApp(const App());

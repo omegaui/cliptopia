@@ -1,4 +1,4 @@
-import 'package:cliptopia/app/powermode/presentation/power_mode_app.dart';
+import 'package:cliptopia/app/powermode/presentation/states/power_mode_loaded_state_view.dart';
 import 'package:cliptopia/app/settings/presentation/widgets/option.dart';
 import 'package:cliptopia/config/assets/app_artworks.dart';
 import 'package:cliptopia/config/assets/app_icons.dart';

@@ -43,8 +43,10 @@ class NotesStateMachine extends StateMachine<NotesState, NotesEvent> {
     switch (e.runtimeType) {
       case NotesLoadingEvent:
         currentState = NotesLoadingState();
+        break;
       case NotesEmptyEvent:
         currentState = NotesEmptyState((e as NotesEmptyEvent).cause);
+        break;
       case NotesInitializedEvent:
         currentState = NotesInitializedState();
     }

@@ -1,10 +1,10 @@
 import 'package:cliptopia/app/clipboard/domain/entity/clipboard_entity.dart';
 import 'package:cliptopia/app/powermode/domain/entity_info.dart';
-import 'package:cliptopia/app/powermode/presentation/power_mode_app.dart';
+import 'package:cliptopia/app/powermode/presentation/states/power_mode_loaded_state_view.dart';
 import 'package:cliptopia/app/settings/presentation/widgets/option.dart';
-import 'package:cliptopia/core/powermode/power_utils.dart';
 import 'package:cliptopia/config/assets/app_icons.dart';
 import 'package:cliptopia/config/themes/app_theme.dart';
+import 'package:cliptopia/core/powermode/power_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:intl/intl.dart';

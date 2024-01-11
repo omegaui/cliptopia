@@ -1,7 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:cliptopia/app/clipboard/data/clipboard_repository.dart';
-import 'package:cliptopia/app/powermode/presentation/power_mode_app.dart';
+import 'package:cliptopia/app/powermode/presentation/states/power_mode_loaded_state_view.dart';
 import 'package:cliptopia/config/assets/app_animations.dart';
 import 'package:cliptopia/config/assets/app_icons.dart';
 import 'package:cliptopia/config/themes/app_theme.dart';

@@ -8,7 +8,7 @@ import 'package:cliptopia/app/powermode/domain/entity/image_entity.dart';
 import 'package:cliptopia/app/powermode/domain/entity/recent_emoji_entity.dart';
 import 'package:cliptopia/app/powermode/domain/entity/text_entity.dart';
 import 'package:cliptopia/app/powermode/domain/entity/typedefs.dart';
-import 'package:cliptopia/app/powermode/presentation/power_mode_app.dart';
+import 'package:cliptopia/app/powermode/presentation/states/power_mode_loaded_state_view.dart';
 import 'package:cliptopia/constants/typedefs.dart';
 import 'package:cliptopia/core/logger.dart';
 import 'package:cliptopia/core/powermode/power_data_store.dart';

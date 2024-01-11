@@ -131,6 +131,7 @@ class StorageKeys {
   static const hideEmojiPanelKey = 'hide-emoji-panel';
   static const hideColorPanelKey = 'hide-color-panel';
   static const saveDateFilerKey = 'save-date-filter';
+  static const clipboardLoadedKey = 'clipboard-loaded';
   static const dontShowDaemonSleepingDialogKey =
       'dont-show-daemon-sleeping-dialog';
 }
@@ -143,4 +144,5 @@ class StorageValues {
   static const defaultCliptopiaPath =
       '/usr/bin/cliptopia'; // manual installer default
   static const defaultAnimationEnabledKey = true;
+  static const defaultClipboardLoadedValue = false;
 }

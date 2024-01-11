@@ -24,8 +24,10 @@ class EmojisStateMachine extends StateMachine<EmojisState, EmojisEvent> {
     switch (e.runtimeType) {
       case EmojisLoadingEvent:
         currentState = EmojisLoadingState();
+        break;
       case EmojisEmptyEvent:
         currentState = EmojisEmptyState();
+        break;
       case EmojisInitializedEvent:
         currentState = EmojisInitializedState();
     }

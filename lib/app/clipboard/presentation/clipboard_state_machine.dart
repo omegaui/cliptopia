@@ -61,14 +61,19 @@ class ClipboardStateMachine
       case ClipboardLoadingEvent:
         currentState =
             ClipboardLoadingState((e as ClipboardLoadingEvent).fastLoad);
+        break;
       case ClipboardDaemonMissingEvent:
         currentState = ClipboardDaemonMissingState();
+        break;
       case ClipboardDaemonIntegrationEvent:
         currentState = ClipboardDaemonIntegrationState();
+        break;
       case ClipboardEmptyEvent:
         currentState = ClipboardEmptyState((e as ClipboardEmptyEvent).cause);
+        break;
       case ClipboardInitializedEvent:
         currentState = ClipboardInitializedState();
+        break;
       case ClipboardUpdateEvent:
         currentState = ClipboardUpdateState();
     }
