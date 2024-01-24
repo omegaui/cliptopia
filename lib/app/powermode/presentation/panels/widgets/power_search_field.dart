@@ -1,4 +1,5 @@
 import 'package:cliptopia/app/powermode/domain/entity/typedefs.dart';
+import 'package:cliptopia/app/powermode/presentation/states/power_mode_loaded_state_view.dart';
 import 'package:cliptopia/config/themes/app_theme.dart';
 import 'package:cliptopia/core/powermode/power_data_handler.dart';
 import 'package:cliptopia/core/storage/storage.dart';
@@ -12,7 +13,7 @@ class PowerSearchField extends StatefulWidget {
 }
 
 class _PowerSearchFieldState extends State<PowerSearchField> {
-  final focusNode = FocusNode();
+  final focusNode = appFocusNode;
 
   final TextEditingController controller = TextEditingController();
 

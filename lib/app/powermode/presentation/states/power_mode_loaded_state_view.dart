@@ -130,43 +130,44 @@ class _PowerModeLoadedStateViewState extends State<PowerModeLoadedStateView> {
     final defaultViewMode = Storage.get(StorageKeys.viewMode,
             fallback: StorageValues.defaultViewMode) ==
         StorageValues.defaultViewMode;
-    return CallbackShortcuts(
-      bindings: {
-        const SingleActivator(LogicalKeyboardKey.escape): () =>
-            Injector.find<AppSession>().endSession(),
-        const SingleActivator(LogicalKeyboardKey.keyI, control: true): () {
-          if (Storage.get(StorageKeys.hideImagePanelKey, fallback: false)) {
-            TempStorage.toggle(StorageKeys.hideImagePanelKey, fallback: false);
+    return Focus(
+      autofocus: true,
+      child: CallbackShortcuts(
+        bindings: {
+          const SingleActivator(LogicalKeyboardKey.escape): () =>
+              Injector.find<AppSession>().endSession(),
+          const SingleActivator(LogicalKeyboardKey.keyI, control: true): () {
+            if (Storage.get(StorageKeys.hideImagePanelKey, fallback: false)) {
+              TempStorage.toggle(StorageKeys.hideImagePanelKey,
+                  fallback: false);
+              rebuild();
+            }
+          },
+          const SingleActivator(LogicalKeyboardKey.keyI,
+              control: true, shift: true): () {
+            if (Storage.isSensitivityOn()) {
+              TempStorage.set(StorageKeys.sensitivity,
+                  !TempStorage.canShowSensitiveContent());
+              rebuild();
+            }
+          },
+          const SingleActivator(LogicalKeyboardKey.keyT, alt: true): () {
+            PowerDataHandler.searchTypeUpdate(PowerSearchType.Text);
             rebuild();
-          }
-        },
-        const SingleActivator(LogicalKeyboardKey.keyI,
-            control: true, shift: true): () {
-          if (Storage.isSensitivityOn()) {
-            TempStorage.set(StorageKeys.sensitivity,
-                !TempStorage.canShowSensitiveContent());
+          },
+          const SingleActivator(LogicalKeyboardKey.keyR, alt: true): () {
+            PowerDataHandler.searchTypeUpdate(PowerSearchType.Regex);
             rebuild();
-          }
+          },
+          const SingleActivator(LogicalKeyboardKey.keyI, alt: true): () {
+            PowerDataHandler.searchTypeUpdate(PowerSearchType.Image);
+            rebuild();
+          },
+          const SingleActivator(LogicalKeyboardKey.keyC, alt: true): () {
+            PowerDataHandler.searchTypeUpdate(PowerSearchType.Comment);
+            rebuild();
+          },
         },
-        const SingleActivator(LogicalKeyboardKey.keyT, alt: true): () {
-          PowerDataHandler.searchTypeUpdate(PowerSearchType.Text);
-          rebuild();
-        },
-        const SingleActivator(LogicalKeyboardKey.keyR, alt: true): () {
-          PowerDataHandler.searchTypeUpdate(PowerSearchType.Regex);
-          rebuild();
-        },
-        const SingleActivator(LogicalKeyboardKey.keyI, alt: true): () {
-          PowerDataHandler.searchTypeUpdate(PowerSearchType.Image);
-          rebuild();
-        },
-        const SingleActivator(LogicalKeyboardKey.keyC, alt: true): () {
-          PowerDataHandler.searchTypeUpdate(PowerSearchType.Comment);
-          rebuild();
-        },
-      },
-      child: Focus(
-        focusNode: appFocusNode,
         child: Scaffold(
           backgroundColor: Colors.transparent,
           body: GestureDetector(

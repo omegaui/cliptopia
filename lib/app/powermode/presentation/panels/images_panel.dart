@@ -39,9 +39,10 @@ class _ImagesPanelState extends State<ImagesPanel> {
         PowerDataHandler.dateFilterChangeListeners.add(rebuild);
         PowerDataHandler.searchTypeChangeListeners.add(rebuild);
         PowerDataHandler.searchTextChangeListeners.add(rebuild);
-        setState(() {
-          initialized = true;
-        });
+        initialized = true;
+        if (mounted) {
+          setState(() {});
+        }
       },
     );
   }
