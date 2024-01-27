@@ -192,4 +192,7 @@ Cliptopia will even offer an in-app uninstall feature to uninstall cliptopia fro
 
 ![image.png](media_Cliptopia/_YkFCpEgyTzs5x-image.png)
 
-          
+## Walkthrough
+
+https://github.com/omegaui/cliptopia/assets/73544069/c0a143b8-63fa-4acf-8075-eee01808be70
+
