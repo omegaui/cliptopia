@@ -81,6 +81,13 @@ On some distros, like **Ubuntu with GNOME on Wayland**, xclip still works becaus
 
 Right now, you can install cliptopia from source or from .deb package in releases section.
 
+**Using [GPM](https://github.com/generic-package-manager/gpm)**
+```shell
+gpm --install omegaui/cliptopia
+```
+
+**Maunal Install**
+
 Before that you need the following commands available in your linux distribution ...
 
 - grep
