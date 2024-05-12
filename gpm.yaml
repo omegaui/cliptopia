@@ -1,0 +1,26 @@
+
+type: application
+
+icon: https://raw.githubusercontent.com/omegaui/cliptopia/master/package/desktop/cliptopia.png
+
+build:
+  - linux:
+      note: 'You are about to install cliptopia with gpm'
+      executable: cliptopia
+      appData:
+        - data
+        - lib
+        - cliptopia
+      dependencies:
+        - executable: flutter
+          version: ^3.13.0
+          help: Please install flutter from https://flutter.dev
+      steps:
+        - name: Running pub get
+          run: flutter pub get
+        - name: Building Cliptopia
+          run: flutter build linux --release
+        - name: Removing sources
+          run: rm -rf lib/
+        - name: Relocating compiled data 
+          run: mv build/linux/x64/release/bundle/* .
