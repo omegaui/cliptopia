@@ -20,7 +20,7 @@ build:
           run: flutter pub get
         - name: Building Cliptopia
           run: flutter build linux --release
-        - name: Removing sources
+        - name: Removing source files
           run: rm -rf lib/
-        - name: Relocating compiled data 
+        - name: Moving Bundle at project root 
           run: mv build/linux/x64/release/bundle/* .
