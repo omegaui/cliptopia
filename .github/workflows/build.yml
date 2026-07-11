@@ -73,7 +73,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Debian
-          path: debian/packages/*.deb
+          path: |
+            build/**/release/debian/*.deb
 
       - name: Upload AppImage
         uses: actions/upload-artifact@v4
