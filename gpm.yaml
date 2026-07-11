@@ -13,7 +13,7 @@ build:
         - cliptopia
       dependencies:
         - executable: flutter
-          version: ^3.13.0
+          version: ^3.44.0
           help: Please install flutter from https://flutter.dev
       steps:
         - name: Running pub get

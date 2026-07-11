@@ -61,7 +61,7 @@ jobs:
         run: flutter build linux --release
 
       - name: Build Debian Package
-        run: flutter pub run flutter_to_debian:main
+        run: flutter pub run flutter_to_debian
 
       - name: Build AppImage
         uses: docker://appimagecrafters/appimage-builder:0.8.5
