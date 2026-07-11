@@ -90,7 +90,7 @@ class _CommandCardState extends State<CommandCard> {
                           padding: const EdgeInsets.symmetric(horizontal: 8.0),
                           child: Icon(
                             Icons.transit_enterexit,
-                            color: AppTheme.foreground.withOpacity(0.3),
+                            color: AppTheme.foreground.withValues(alpha: 0.3),
                             size: 14,
                           ),
                         ),

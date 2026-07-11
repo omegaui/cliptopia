@@ -61,7 +61,7 @@ class _FilePanelState extends State<FilePanel> {
               ? [
                   BoxShadow(
                     color: Colors.black
-                        .withOpacity(PowerModeTheme.dropShadowOpacity),
+                        .withValues(alpha: PowerModeTheme.dropShadowOpacity),
                     blurRadius: 16,
                   )
                 ]

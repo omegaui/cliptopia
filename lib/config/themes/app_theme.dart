@@ -11,9 +11,9 @@ class PowerModeTheme {
   static Color borderColor = const Color(0xFFFFFFFF);
   static Color searchFieldColor = const Color(0xFFF4F5F6);
   static Color searchFieldBorderColor =
-      const Color(0xFF9A9996).withOpacity(0.5);
+      const Color(0xFF9A9996).withValues(alpha: 0.5);
   static Color searchFieldBorderEnabledColor =
-      const Color(0xFF00A6CB).withOpacity(0.5);
+      const Color(0xFF00A6CB).withValues(alpha: 0.5);
   static Color searchFieldHintColor = const Color(0xFF5E5C64);
   static Color dateFilterTextColor = const Color(0xFF565656);
   static Color dateFilterHoverBackgroundColor = const Color(0xffe7e7e6);
@@ -21,13 +21,13 @@ class PowerModeTheme {
   static Color activeImageFilterTextColor = const Color(0xff228CDA);
   static Color inActiveImageFilterBackgroundColor = const Color(0xffe7e7e6);
   static Color inActiveImageFilterTextColor = const Color(0xff2e2e2e);
-  static Color cardDropShadowColor = const Color(0xFFD3D3D3).withOpacity(0.60);
-  static Color imageCardDropShadowColor = Colors.blue.withOpacity(0.60);
-  static Color cardBorderColor = Colors.black.withOpacity(0.20);
+  static Color cardDropShadowColor = const Color(0xFFD3D3D3).withValues(alpha: 0.60);
+  static Color imageCardDropShadowColor = Colors.blue.withValues(alpha: 0.60);
+  static Color cardBorderColor = Colors.black.withValues(alpha: 0.20);
   static Color panelBackgroundColor = const Color(0xffFFFFFF);
   static Color panelTopBarColor = const Color(0xffF2F2F2);
   static Color collectionCardColor = const Color(0xffF4f4f4);
-  static Color collectionCardDropShadowColor = Colors.grey.withOpacity(0.60);
+  static Color collectionCardDropShadowColor = Colors.grey.withValues(alpha: 0.60);
 
   static void init() {
     // if (getSystemTheme() == 'dark') {}
@@ -40,11 +40,11 @@ class AppTheme {
   static Color background = Colors.white;
   static Color foreground = Colors.black;
   static Color foreground2 = const Color(0xFF2E2E2E);
-  static Color windowDropShadowColor = Colors.black.withOpacity(0.25);
-  static Color topBarDropShadowColor = Colors.black.withOpacity(0.10);
-  static Color buttonSurfaceColor = const Color(0xFF7E7C77).withOpacity(0.25);
+  static Color windowDropShadowColor = Colors.black.withValues(alpha: 0.25);
+  static Color topBarDropShadowColor = Colors.black.withValues(alpha: 0.10);
+  static Color buttonSurfaceColor = const Color(0xFF7E7C77).withValues(alpha: 0.25);
   static Color integrateButtonSurfaceColor =
-      const Color(0xFF2E3CDD).withOpacity(0.25);
+      const Color(0xFF2E3CDD).withValues(alpha: 0.25);
   static Color activeRouteColor = Colors.blue;
   static Color tooltipBackgroundColor = Colors.white;
   static Color tooltipBorderColor = Colors.yellow;
@@ -52,7 +52,7 @@ class AppTheme {
   static Color hintColor = const Color(0xFF676767);
   static Color enabledBorderColor = Colors.blueAccent;
   static Color focusedBorderColor = Colors.green;
-  static Color barrierColor = const Color(0xFFD9D9D9).withOpacity(0.40);
+  static Color barrierColor = const Color(0xFFD9D9D9).withValues(alpha: 0.40);
   static Color imageFilterBackgroundColor = const Color(0xFFC8E9F0);
   static Color videoFilterBackgroundColor = const Color(0xFFC8D6F0);
   static Color audioFilterBackgroundColor = const Color(0xFFF0C8DB);
@@ -62,19 +62,19 @@ class AppTheme {
   static Color audioFilterForegroundColor = const Color(0xFF7E106D);
   static Color filesFilterForegroundColor = const Color(0xFF547E10);
   static Color filterDialogCloseButtonColor = const Color(0xFF363636);
-  static Color filterActiveColor = const Color(0xFF139FCB).withOpacity(0.25);
+  static Color filterActiveColor = const Color(0xFF139FCB).withValues(alpha: 0.25);
   static Color tileUpperDropShadowColor =
-      const Color(0xFFD9D9D9).withOpacity(0.25);
+      const Color(0xFFD9D9D9).withValues(alpha: 0.25);
   static Color tileLowerDropShadowColor =
-      const Color(0xFFD9D9D9).withOpacity(0.50);
+      const Color(0xFFD9D9D9).withValues(alpha: 0.50);
   static Color copyButtonColor = const Color(0xFFD9D9D9);
   static Color commandTileColor = const Color(0xFFF0F0F0);
   static Color commandTileCopyButtonColor = const Color(0xFFA9A9A9);
   static Color selectedCategoryBackgroundColor = const Color(0xFF339DFF);
   static Color infoCardUpperDropShadowColor =
-      const Color(0xFFD9D9D9).withOpacity(0.20);
+      const Color(0xFFD9D9D9).withValues(alpha: 0.20);
   static Color infoCardLowerDropShadowColor =
-      const Color(0xFFD3D3D3).withOpacity(0.40);
+      const Color(0xFFD3D3D3).withValues(alpha: 0.40);
   static Color messageBirdColor = Colors.blue.shade700;
   static Color messageBirdErrorColor = Colors.red.shade700;
   static Color messageBirdWarningColor = Colors.orange.shade700;

@@ -95,7 +95,7 @@ class _PowerModeTextViewStateViewState
             boxShadow: [
               BoxShadow(
                 color:
-                    Colors.black.withOpacity(PowerModeTheme.dropShadowOpacity),
+                    Colors.black.withValues(alpha: PowerModeTheme.dropShadowOpacity),
                 blurRadius: 48,
               )
             ],

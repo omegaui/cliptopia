@@ -45,7 +45,7 @@ class _CollectionPanelState extends State<CollectionPanel> {
         border: Border.all(color: PowerModeTheme.borderColor),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(PowerModeTheme.dropShadowOpacity),
+            color: Colors.black.withValues(alpha: PowerModeTheme.dropShadowOpacity),
             blurRadius: 48,
           )
         ],

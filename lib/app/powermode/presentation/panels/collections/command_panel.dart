@@ -60,7 +60,7 @@ class _CommandPanelState extends State<CommandPanel> {
               ? [
                   BoxShadow(
                     color: Colors.black
-                        .withOpacity(PowerModeTheme.dropShadowOpacity),
+                        .withValues(alpha: PowerModeTheme.dropShadowOpacity),
                     blurRadius: 16,
                   )
                 ]

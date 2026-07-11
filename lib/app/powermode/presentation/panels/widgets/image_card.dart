@@ -97,8 +97,8 @@ class _ImageCardState extends State<ImageCard> {
                           borderRadius: BorderRadius.circular(20),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.black.withOpacity(
-                                  PowerModeTheme.dropShadowOpacity),
+                              color: Colors.black.withValues(
+                                  alpha: PowerModeTheme.dropShadowOpacity),
                               blurRadius: 16,
                             )
                           ],

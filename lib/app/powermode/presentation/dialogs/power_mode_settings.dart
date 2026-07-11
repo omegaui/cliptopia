@@ -49,7 +49,7 @@ class _PowerModeSettingsState extends State<PowerModeSettings> {
               boxShadow: [
                 BoxShadow(
                   color: Colors.black
-                      .withOpacity(PowerModeTheme.dropShadowOpacity),
+                      .withValues(alpha: PowerModeTheme.dropShadowOpacity),
                   blurRadius: 48,
                 ),
               ],
@@ -162,8 +162,8 @@ class _PowerModeSettingsState extends State<PowerModeSettings> {
                           child: Container(
                             decoration: BoxDecoration(
                               color: backgroundViewMode
-                                  ? Colors.blueAccent.withOpacity(0.2)
-                                  : Colors.grey.withOpacity(0.2),
+                                  ? Colors.blueAccent.withValues(alpha: 0.2)
+                                  : Colors.grey.withValues(alpha: 0.2),
                               borderRadius: BorderRadius.circular(10),
                             ),
                             padding: const EdgeInsets.symmetric(
@@ -200,8 +200,8 @@ class _PowerModeSettingsState extends State<PowerModeSettings> {
                           child: Container(
                             decoration: BoxDecoration(
                               color: defaultViewMode
-                                  ? Colors.blueAccent.withOpacity(0.2)
-                                  : Colors.grey.withOpacity(0.2),
+                                  ? Colors.blueAccent.withValues(alpha: 0.2)
+                                  : Colors.grey.withValues(alpha: 0.2),
                               borderRadius: BorderRadius.circular(10),
                             ),
                             padding: const EdgeInsets.symmetric(

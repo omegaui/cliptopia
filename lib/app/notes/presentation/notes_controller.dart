@@ -7,8 +7,8 @@ import 'package:cliptopia/core/services/machine/controller.dart';
 class NotesController extends Controller<NotesState, NotesEvent> {
   final notesRepo = Injector.find<NotesRepository>();
 
-  NotesController({required RebuildCallback onRebuild})
-      : super(onRebuild: onRebuild, stateMachine: NotesStateMachine());
+  NotesController({required super.onRebuild})
+      : super(stateMachine: NotesStateMachine());
 
   void load({fastLoad = false}) async {
     if (notesRepo.hasObjects()) {

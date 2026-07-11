@@ -28,7 +28,7 @@ class ClipboardDaemonIntegrationStateView extends StatefulWidget {
 
 class _ClipboardDaemonIntegrationStateViewState
     extends State<ClipboardDaemonIntegrationStateView> {
-  late StreamSubscription<ConnectivityResult> subscription;
+  late StreamSubscription<List<ConnectivityResult>> subscription;
 
   bool connected = false;
   bool downloading = false;
@@ -40,11 +40,10 @@ class _ClipboardDaemonIntegrationStateViewState
     super.initState();
     Future(() async {
       final connectivity = Connectivity();
-      connected =
-          (await connectivity.checkConnectivity()) != ConnectivityResult.none;
+      connected = (await connectivity.checkConnectivity()).isNotEmpty;
       setState(() {});
       subscription = connectivity.onConnectivityChanged.listen((result) {
-        if (result != ConnectivityResult.none) {
+        if (result.isNotEmpty) {
           if (!connected) {
             setState(() {
               connected = true;

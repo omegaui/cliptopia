@@ -17,7 +17,7 @@ void initSessionLog() {
   }
 }
 
-prettyLog({
+void prettyLog({
   String? tag,
   required dynamic value,
   DebugType type = DebugType.info,

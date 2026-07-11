@@ -79,7 +79,7 @@ class _EntityInfoDialogState extends State<EntityInfoDialog> {
             boxShadow: [
               BoxShadow(
                 color:
-                    Colors.black.withOpacity(PowerModeTheme.dropShadowOpacity),
+                    Colors.black.withValues(alpha: PowerModeTheme.dropShadowOpacity),
                 blurRadius: 48,
               ),
             ],

@@ -8,7 +8,7 @@ class ExclusionEntity {
     return pattern.allMatches(text).isNotEmpty;
   }
 
-  toMap() {
+  Map<String, String> toMap() {
     return {
       'name': name,
       'pattern': pattern,

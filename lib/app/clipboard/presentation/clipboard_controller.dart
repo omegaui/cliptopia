@@ -7,8 +7,8 @@ import 'package:cliptopia/core/services/machine/controller.dart';
 class ClipboardController extends Controller<ClipboardState, ClipboardEvent> {
   final clipboardRepo = Injector.find<ClipboardRepository>();
 
-  ClipboardController({required RebuildCallback onRebuild})
-      : super(onRebuild: onRebuild, stateMachine: ClipboardStateMachine());
+  ClipboardController({required super.onRebuild})
+      : super(stateMachine: ClipboardStateMachine());
 
   void load(ClipboardLoadingState state) async {
     if (!state.fastLoad) {
@@ -44,7 +44,7 @@ class ClipboardController extends Controller<ClipboardState, ClipboardEvent> {
     clipboardRepo.startDaemonIfNotRunning();
   }
 
-  void reload({fastLoad = false}) {
+  void reload({bool fastLoad = false}) {
     onEvent(ClipboardLoadingEvent(fastLoad));
     if (fastLoad) {
       load(ClipboardLoadingState(fastLoad));

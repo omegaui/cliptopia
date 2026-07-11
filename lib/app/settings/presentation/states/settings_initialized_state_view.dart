@@ -593,7 +593,7 @@ class _SettingsInitializedStateViewState
                           spacing: 8,
                           runSpacing: 8,
                           children: [
-                            ...exclusions.map((e) => buildTile(e)).toList(),
+                            ...exclusions.map((e) => buildTile(e)),
                           ],
                         ),
                       ],

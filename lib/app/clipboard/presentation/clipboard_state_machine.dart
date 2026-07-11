@@ -58,23 +58,23 @@ class ClipboardStateMachine
   @override
   void changeStateOnEvent(ClipboardEvent e) {
     switch (e.runtimeType) {
-      case ClipboardLoadingEvent:
+      case const (ClipboardLoadingEvent):
         currentState =
             ClipboardLoadingState((e as ClipboardLoadingEvent).fastLoad);
         break;
-      case ClipboardDaemonMissingEvent:
+      case const (ClipboardDaemonMissingEvent):
         currentState = ClipboardDaemonMissingState();
         break;
-      case ClipboardDaemonIntegrationEvent:
+      case const (ClipboardDaemonIntegrationEvent):
         currentState = ClipboardDaemonIntegrationState();
         break;
-      case ClipboardEmptyEvent:
+      case const (ClipboardEmptyEvent):
         currentState = ClipboardEmptyState((e as ClipboardEmptyEvent).cause);
         break;
-      case ClipboardInitializedEvent:
+      case const (ClipboardInitializedEvent):
         currentState = ClipboardInitializedState();
         break;
-      case ClipboardUpdateEvent:
+      case const (ClipboardUpdateEvent):
         currentState = ClipboardUpdateState();
     }
   }

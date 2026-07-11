@@ -7,8 +7,8 @@ import 'package:cliptopia/core/services/machine/controller.dart';
 class CommandsController extends Controller<CommandsState, CommandsEvent> {
   final _commandsRepo = Injector.find<CommandsRepository>();
 
-  CommandsController({required RebuildCallback onRebuild})
-      : super(onRebuild: onRebuild, stateMachine: CommandsStateMachine());
+  CommandsController({required super.onRebuild})
+      : super(stateMachine: CommandsStateMachine());
 
   void load({fastLoad = false}) async {
     if (_commandsRepo.hasObjects()) {

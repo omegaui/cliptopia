@@ -331,7 +331,7 @@ class _DaemonManagerDialogState extends State<DaemonManagerDialog> {
             boxShadow: [
               BoxShadow(
                 color:
-                    Colors.black.withOpacity(PowerModeTheme.dropShadowOpacity),
+                    Colors.black.withValues(alpha: PowerModeTheme.dropShadowOpacity),
                 blurRadius: 48,
               ),
             ],
@@ -344,7 +344,7 @@ class _DaemonManagerDialogState extends State<DaemonManagerDialog> {
   }
 }
 
-showDaemonManagerDialog(BuildContext context) {
+void showDaemonManagerDialog(BuildContext context) {
   showDialog(
     context: context,
     barrierColor: Colors.transparent,

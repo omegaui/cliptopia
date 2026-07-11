@@ -33,7 +33,7 @@ class _PowerSearchFieldState extends State<PowerSearchField> {
     );
   }
 
-  _createInputBorder(Color color) {
+  OutlineInputBorder _createInputBorder(Color color) {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(10),
       borderSide: BorderSide(color: color),

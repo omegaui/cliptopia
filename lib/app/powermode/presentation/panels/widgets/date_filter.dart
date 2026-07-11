@@ -62,7 +62,7 @@ class _DateFilterState extends State<DateFilter> {
     );
   }
 
-  showFilterSelectionBottomSheet() {
+  void showFilterSelectionBottomSheet() {
     bool customState =
         PowerDataHandler.dateFilterType == PowerDateFilterType.custom;
     void handleOnChanged(value, setModalState, [date]) {
@@ -112,7 +112,7 @@ class _DateFilterState extends State<DateFilter> {
                     boxShadow: [
                       BoxShadow(
                         color: Colors.black
-                            .withOpacity(PowerModeTheme.dropShadowOpacity),
+                            .withValues(alpha: PowerModeTheme.dropShadowOpacity),
                         blurRadius: 48,
                       )
                     ],
